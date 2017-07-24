@@ -1,0 +1,40 @@
+
+
+//490,34
+
+#timeout-l1, #timeout-l2, #timeout-l3,
+#timeout-r1, #timeout-r2, #timeout-r3 {
+  position: absolute;
+  top: 34px;
+  left: 490px;
+
+  width: 936px;
+  height: 94px;
+
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+#timeout-l1 {
+  background-image: url("/img/timeout-l1.png")
+}
+
+#timeout-l2 {
+  background-image: url("/img/timeout-l2.png")  
+}
+
+#timeout-l3 {
+  background-image: url("/img/timeout-l3.png")  
+}
+
+#timeout-r1 {
+  background-image: url("/img/timeout-r1.png")  
+}
+
+#timeout-r2 {
+  background-image: url("/img/timeout-r2.png")  
+}
+
+#timeout-r3 {
+  background-image: url("/img/timeout-r3.png")  
+}

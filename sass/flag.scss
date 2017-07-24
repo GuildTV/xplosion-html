@@ -1,0 +1,28 @@
+
+#flag-outer {
+  width: 0;
+  height: 80px;
+
+  position: absolute;
+  right: 516px;
+  top: 40px;
+
+  overflow: hidden;
+
+  transition: width 0.6s;
+
+
+  #flag {
+    width: 200px;
+    height: 80px;
+
+    background-image: url("/img/flag.png");
+
+    float: right;
+    right: 0;
+  }
+}
+
+body.flag #flag-outer {
+  width: 200px !important;
+}

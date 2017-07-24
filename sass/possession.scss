@@ -1,0 +1,33 @@
+#possession-left-circle, #possession-right-circle {
+  top: 22px !important;
+
+  width: 10px;
+  height: 10px !important;
+
+  border-radius: 5px;
+
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+#possession-left-circle {
+  background: $possession-left-color;
+  left: 299px;
+}
+
+#possession-right-circle {
+  background: $possession-right-color;
+  left: 532px;
+}
+
+body.possession-left {
+  #possession-left-circle {
+    opacity: 1 !important;
+  }
+}
+
+body.possession-right {
+  #possession-right-circle {
+    opacity: 1 !important;
+  }
+}
