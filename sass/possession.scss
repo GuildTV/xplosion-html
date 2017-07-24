@@ -1,5 +1,5 @@
 #possession-left-circle, #possession-right-circle {
-  top: 22px !important;
+  margin-top: 20px;
 
   width: 10px;
   height: 10px !important;
@@ -11,13 +11,11 @@
 }
 
 #possession-left-circle {
-  background: $possession-left-color;
-  left: 299px;
+  background: $team-l-color-text;
 }
 
 #possession-right-circle {
-  background: $possession-right-color;
-  left: 532px;
+  background: $team-r-color-text;
 }
 
 body.possession-left {

@@ -1,6 +1,16 @@
 
-$possession-left-color: #363636;
-$possession-right-color: #e5e5e5;
+$text-dark: #363636;
+$text-light: #e5e5e5;
 
-$in-out-duration: 1.2s;
+// $in-out-duration: 1.2s;
 // $in-out-trigger: 0.78s;
+
+
+$team-l-color-text: $text-dark;
+$team-l-color-bg1: #fdfdfd;
+$team-l-color-bg2: darken($team-l-color-bg1, 26%);
+
+
+$team-r-color-text: $text-light;
+$team-r-color-bg1: #365f98;
+$team-r-color-bg2: darken($team-r-color-bg1, 25%);

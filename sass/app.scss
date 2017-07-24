@@ -27,7 +27,6 @@ body {
   // transition-delay: 0.78s;
   // transition-timing-function: ease-in;
 
-
   #content {
     position: fixed;
     top: 0;
@@ -35,6 +34,15 @@ body {
 
     width: 100vw;
     height: 100vh;
+  }
+
+  #bar-bg {
+    position: absolute;
+    top: 34px;
+    left: 490px;
+
+    width: 936px;
+    height: 94px;
 
     background-image: url("/img/bar-bg.png");
   }
@@ -92,7 +100,7 @@ body {
   text-align: center;
   vertical-align: middle;
   line-height: 1;
-  color: #e5e5e5;
+  color: $text-light;
 
   &> div {
     position: absolute;
@@ -114,7 +122,7 @@ body {
   }
   #score-right {
     left: 600px;
-    width: 90px
+    width: 85px
   }
 
   #box-right {
@@ -122,5 +130,34 @@ body {
     width: 190px;
   }
 
+  #team-l, #team-r {
+    display: flex;
+    justify-content: space-around;
+
+    top: 0.5px;
+    height: 47px;
+
+    .text {
+      margin-top: -2px;
+    }
+  }
+
+  #team-l {
+    left: 237px;
+    width: 122px;
+
+    color: $team-l-color-text;
+    background: linear-gradient($team-l-color-bg1, $team-l-color-bg2);
+    border: 2px solid #282828;
+  }
+
+  #team-r {
+    left: 457px;
+    width: 139px;
+
+    color: $team-r-color-text;
+    background: linear-gradient($team-r-color-bg1, $team-r-color-bg2);
+    border: 2px solid #282828;
+  }
 
 }

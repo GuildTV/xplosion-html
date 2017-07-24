@@ -1,7 +1,5 @@
 require ("../sass/app.scss");
 
-console.log([1, 2, 3, [4]]);
-
 
 // window.playIn = function() {
 //   const inVideo = document.querySelector('#video-in');
