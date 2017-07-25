@@ -13,3 +13,14 @@ html, body {
   overflow:hidden;                                         /* Hide any overflowing elements - to disable scollbars */
   -webkit-font-smoothing:antialiased !important;           /* Set aliasing of fonts - possible options: none, antialiased,  subpixel-antialiased */
 }
+
+body {
+  background: #00ff00;
+  font-family: "AlegreSans";
+}
+
+@font-face {
+  font-family: "AlegreSans";
+  src: url("/font/Alegre Sans.ttf");
+}
+

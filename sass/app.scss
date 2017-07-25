@@ -5,17 +5,9 @@
 @import "possession";
 @import "timeout";
 @import "flag";
-
-body {
-  background: #00ff00;
-  font-family: "AlegreSans";
-}
-
-@font-face {
-  font-family: "AlegreSans";
-  src: url("/font/Alegre Sans.ttf");
-}
-
+@import "touchdown";
+@import "bar-text";
+@import "video";
 
 #content-mask {
   // width: 0;
@@ -57,107 +49,4 @@ body {
   height: 100vh;
 
   background-image: url("/img/template-overlay.png");
-}
-
-// .video-holder {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-
-//   width: 100vw;
-//   height: 100vh;
-
-//   video {
-//     width: 100%;
-//     height: 100%;
-//   }
-// }
-
-// #video-in {
-//   opacity: 1;
-// }
-// #video-out {
-//   opacity: 0;
-// }
-
-// body.in {
-//   #content-mask {
-//     width: 100vw !important;
-//   }
-
-// }
-
-
-#bar-outline {
-  position: absolute;
-  top: 55px;
-  left: 520px;
-
-  width: 880px;
-  height: 50px;
-
-  font-size: 50px;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 1;
-  color: $text-light;
-
-  &> div {
-    position: absolute;
-    top: 0;
-
-    height: 100%;
-
-    // background: #fff;
-  }
-
-  #box-left {
-    left: 0;
-    width: 230px
-  }
-
-  #score-left {
-    left: 360px;
-    width: 90px;
-  }
-  #score-right {
-    left: 600px;
-    width: 85px
-  }
-
-  #box-right {
-    left: 690px;
-    width: 190px;
-  }
-
-  #team-l, #team-r {
-    display: flex;
-    justify-content: space-around;
-
-    top: 0.5px;
-    height: 47px;
-
-    .text {
-      margin-top: -2px;
-    }
-  }
-
-  #team-l {
-    left: 237px;
-    width: 122px;
-
-    color: $team-l-color-text;
-    background: linear-gradient($team-l-color-bg1, $team-l-color-bg2);
-    border: 2px solid #282828;
-  }
-
-  #team-r {
-    left: 457px;
-    width: 139px;
-
-    color: $team-r-color-text;
-    background: linear-gradient($team-r-color-bg1, $team-r-color-bg2);
-    border: 2px solid #282828;
-  }
-
 }

@@ -1,0 +1,123 @@
+
+#touchdown {
+  -webkit-mask-image: url("/img/mask.png");
+  -webkit-mask-position-x: 920px;
+  -webkit-mask-repeat: no-repeat;
+
+  transition: -webkit-mask-position-x 0.44s;
+
+  position: absolute;
+  top: 34px;
+  left: 490px;
+  width: 936px;
+  height: 94px;
+
+  // background: #fff;
+
+  .template {
+    position: absolute;
+    top: 10px;
+    left: 22px;
+
+    width: 900px;
+    height: 75px;
+    background-image: url("/img/template-touchdown.png");
+  }
+
+  .bg {
+    position: absolute;
+    top: 19px;
+    height: 53px;
+    left: 24px;
+    width: 886px;
+
+    border: 2px solid #282828;
+    border-radius: 5px;
+
+    // opacity: 0.5
+  }
+
+  img {
+    position: absolute;
+    left: 75px;
+    top: 23px;
+  }
+
+  .text {
+    position: absolute;
+
+    top: 19px;
+    height: 53px;
+    // left: 100px;
+    // width: 816px;
+    left: 25px;
+    width: 890px;
+
+    letter-spacing: 0.1em;
+    font-size: 57px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1;
+
+    filter: blur(5px);
+
+  }
+
+  video {
+    position: absolute;
+    top: 10px;
+    left: 22px;
+
+    display: none;
+  }
+}
+
+// Animate contents
+body.touchdown-ani #touchdown .text {
+  transition: letter-spacing 10s linear, filter 2s linear;
+  letter-spacing: 0.8em !important;
+  filter: blur(0px);
+}
+
+// Animate in/out
+body.touchdown-in #touchdown {
+  -webkit-mask-position-x: 0 !important;
+}
+
+body.touchdown-l #touchdown {
+  .text {
+    color: $team-l-color-text;
+  }
+  .bg {
+    background: linear-gradient($team-l-color-bg1, $team-l-color-bg2);
+  }
+
+  @if $team-l-color-text == $text-dark {
+    #touchdown-effect-dark {
+      display: block !important;
+    }
+  } @else {
+    #touchdown-effect-light {
+      display: block !important;
+    }
+  }
+}
+
+body.touchdown-r #touchdown {
+  .text {
+    color: $team-r-color-text;
+  }
+  .bg {
+    background: linear-gradient($team-r-color-bg1, $team-r-color-bg2);
+  }
+
+  @if $team-r-color-text == $text-light {
+    #touchdown-effect-light {
+      display: block !important;
+    }
+  } @else {
+    #touchdown-effect-dark {
+      display: block !important;
+    }
+  }
+}

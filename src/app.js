@@ -1,5 +1,5 @@
-require ("../sass/app.scss");
-
+require("../sass/app.scss");
+require("./touchdown");
 
 // window.playIn = function() {
 //   const inVideo = document.querySelector('#video-in');
@@ -19,7 +19,6 @@ require ("../sass/app.scss");
 window.showFlag = function(){
   document.body.classList.add("flag");
 }
-
 window.hideFlag = function(){
   document.body.classList.remove("flag");
 }

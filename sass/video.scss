@@ -1,0 +1,29 @@
+
+.video-holder {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  video {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// #video-in {
+//   opacity: 1;
+// }
+// #video-out {
+//   opacity: 0;
+// }
+
+// body.in {
+//   #content-mask {
+//     width: 100vw !important;
+//   }
+
+// }
+
