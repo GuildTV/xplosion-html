@@ -37,9 +37,10 @@ namespace xplosion
             };
             app.UseWebSockets(webSocketOptions);
             app.UseMiddleware<WebsocketMiddleware>();
-            
+
             app.UseMvc();
             app.UseCors("AllowAllOrigins");
+            app.UseDefaultFiles();
             app.UseStaticFiles();
         }
     }

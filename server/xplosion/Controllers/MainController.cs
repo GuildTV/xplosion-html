@@ -62,7 +62,11 @@ namespace xplosion.Controllers
             {
                 Console.WriteLine("Got {0} updates", update.Updates.Count);
                 var tempState = HandleState(update);
-                WebsocketMiddleware.SendToAllAsync(JsonConvert.SerializeObject(tempState));
+
+                string stateStr = JsonConvert.SerializeObject(tempState);
+                WebsocketMiddleware.SendToAllAsync(stateStr);
+
+                System.IO.File.WriteAllText(@"./state.json", stateStr);
             }
 
             return Get();

@@ -32,6 +32,10 @@ namespace xplosion.State
 
                 return _instance = new GraphicsState();
             }
+            set
+            {
+                _instance = value;
+            }
         }
 
         [JsonProperty("quarter")]
@@ -56,7 +60,7 @@ namespace xplosion.State
         [JsonProperty("downs")]
         public uint Downs { get; set; }
         [JsonProperty("gains")]
-        public string Gains { get; set; }
+        public string Gains { get; set; } = "";
     }
 
     public class GraphicsStateWithTriggers : GraphicsState
