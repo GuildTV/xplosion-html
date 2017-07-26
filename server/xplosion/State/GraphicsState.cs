@@ -33,19 +33,28 @@ namespace xplosion.State
             }
         }
 
+        [JsonProperty("quarter")]
         public uint Quarter { get; set; }
 
+        [JsonProperty("scoreL")]
         public uint ScoreL { get; set; }
+        [JsonProperty("scoreR")]
         public uint ScoreR { get; set; }
 
+        [JsonProperty("timeoutsL")]
         public Timeouts TimeoutsL { get; set; }
+        [JsonProperty("timeoutsR")]
         public Timeouts TimeoutsR { get; set; }
 
+        [JsonProperty("possession")]
         public Possession Possession { get; set; }
 
+        [JsonProperty("flag")]
         public bool Flag { get; set; }
 
+        [JsonProperty("downs")]
         public uint Downs { get; set; }
+        [JsonProperty("gains")]
         public string Gains { get; set; }
     }
 }

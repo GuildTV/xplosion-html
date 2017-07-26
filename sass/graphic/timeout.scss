@@ -35,3 +35,7 @@
 #timeout-r3 {
   background-image: url("/img/timeout-r3.png")  
 }
+
+.timeL.hidden, .timeR.hidden {
+  opacity: 0 !important;
+}

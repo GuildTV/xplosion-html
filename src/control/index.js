@@ -10,7 +10,7 @@ const init = { method: 'GET',
                headers: { 'Accept': 'application/json' },
                cache: 'default' }
 
-fetch('http://localhost:5000/api/main', init).then(r => r.json()).then(j => {
+fetch('http://10.42.13.111:5000/api/main', init).then(r => r.json()).then(j => {
   window.CurrentState = j;
   renderState();
 })
@@ -29,16 +29,16 @@ function renderState(){
 
   renderQuarter(state, next);
   renderFlag(state, next);
-  renderAuto(state, next, "possession");
-  renderAuto(state, next, "timeoutsL");
-  renderAuto(state, next, "timeoutsR");
+  renderButtonGroup(state, next, "possession");
+  renderButtonGroup(state, next, "timeoutsL");
+  renderButtonGroup(state, next, "timeoutsR");
   renderScore(state, next);
-  renderAuto(state, next, "downs");
+  renderButtonGroup(state, next, "downs");
   renderGains(state, next);
 }
 
 function renderQuarter(state, next){
-  // renderAuto(state, next, "quarter"); // Old buttons
+  // renderButtonGroup(state, next, "quarter"); // Old buttons
   const elm = document.querySelector('#quarter-select');
   elm.classList.remove("pending");
 
@@ -66,7 +66,7 @@ function renderFlag(state, next){
     elm.classList.add('next');
 }
 
-function renderAuto(state, next, key){
+function renderButtonGroup(state, next, key){
   classRemoveAll(document.querySelectorAll('.btn[data-key="'+key+'"]'), ['current', 'pending']);
   const elm = document.querySelector('.btn[data-key="'+key+'"][data-value="'+state[key]+'"]')
   if (elm !== null)
@@ -106,9 +106,9 @@ function renderGains(state, next){
 }
 
 document.querySelector('#gains-slider').oninput = () => {
-  const val = document.querySelector('#gains-slider').value;
-
-  window.NextState.gains = val;
+  window.NextState.gains = document.querySelector('#gains-slider').value;
+  if (window.NextState.gains == window.CurrentState.gains)
+    window.NextState.gains = undefined;
 
   renderState();
 };
@@ -121,7 +121,7 @@ document.querySelectorAll('.btn-flag').forEach(e => {
   };
 });
 
-function btnAutoHandler(e) {
+function buttonGroupHandler(e) {
   e = e.currentTarget;
   
   const key = e.getAttribute('data-key');
@@ -142,11 +142,11 @@ function btnAutoHandler(e) {
   renderState();
 }
 
-document.querySelectorAll('.btn-gains').forEach(e => e.onclick = btnAutoHandler);
-document.querySelectorAll('.btn-possession').forEach(e => e.onclick = btnAutoHandler);
-document.querySelectorAll('.btn-downs').forEach(e => e.onclick = btnAutoHandler);
-document.querySelectorAll('.btn-timeouts').forEach(e => e.onclick = btnAutoHandler);
-document.querySelectorAll('.btn-quarter').forEach(e => e.onclick = btnAutoHandler);
+document.querySelectorAll('.btn-gains').forEach(e => e.onclick = buttonGroupHandler);
+document.querySelectorAll('.btn-possession').forEach(e => e.onclick = buttonGroupHandler);
+document.querySelectorAll('.btn-downs').forEach(e => e.onclick = buttonGroupHandler);
+document.querySelectorAll('.btn-timeouts').forEach(e => e.onclick = buttonGroupHandler);
+document.querySelectorAll('.btn-quarter').forEach(e => e.onclick = buttonGroupHandler);
 document.querySelector('#quarter-select').onchange = (e) => {
   const newElm = document.querySelector('#quarter-select option:checked');
   const newVal = newElm.getAttribute('value');
@@ -171,7 +171,7 @@ document.querySelectorAll('.btn-score').forEach(elm=> {
       }
     }
 
-    btnAutoHandler(e);
+    buttonGroupHandler(e);
   };
 });
 
@@ -196,7 +196,7 @@ document.querySelector('.commit').onclick = () => {
     cache: 'default'
   };
   // TODO - locking to prevent double submit
-  fetch('http://localhost:5000/api/main', init).then(r => r.json()).then(j => {
+  fetch('http://10.42.13.111:5000/api/main', init).then(r => r.json()).then(j => {
     window.CurrentState = j;
     window.NextState = {};
     renderState();

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.WebSockets;
 using Newtonsoft.Json;
 using xplosion.State;
 
@@ -55,9 +56,11 @@ namespace xplosion.Controllers
         [HttpPost]
         public GraphicsState Post([FromBody]StateUpdate update)
         {
-            if (update != null && update.Updates != null) {
+            if (update != null && update.Updates != null)
+            {
                 Console.WriteLine("Got {0} updates", update.Updates.Count);
                 HandleState(update);
+                WebsocketMiddleware.SendToAllAsync(JsonConvert.SerializeObject(GraphicsState.Instance));
             }
 
             return Get();
