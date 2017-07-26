@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>xpLosION HTML Graphics</title>
+</head>
+<body class="possession-left possession-right">
+
+  <div id="content-mask">
+    <div id="content">
+      <div id="bar-bg"></div>
+
+      <div id="bar-outline">
+        <div id="box-left">3rd &amp; 5</div>
+        <div id="box-right">1st</div>
+
+        <div id="score-left">0</div>
+        <div id="score-right">3</div>
+
+        <div id="team-l">
+          <img src="/img/logo-l.png" />
+
+          <div id="possession-left-circle"></div>
+
+          <span class="text">BL</span>
+        </div>
+
+        <div id="team-r">
+          <img src="/img/logo-r.png" />
+
+          <div id="possession-right-circle"></div>
+
+          <span class="text">KB</span>
+        </div>
+
+      </div>
+
+      <div id="timeout-l1"></div>
+      <div id="timeout-l2"></div>
+      <div id="timeout-l3"></div>
+      <div id="timeout-r1"></div>
+      <div id="timeout-r2"></div>
+      <div id="timeout-r3"></div>
+
+      <div id="flag-outer">
+        <div id="flag"></div>
+      </div>
+
+      <div id="touchdown">
+        <div class="template"></div>
+        <div class="bg"></div>
+
+        <video id="touchdown-effect-dark" preload="auto">
+          <source src="/video/Touchdown-effect-dark.mov.webm" type="video/ogg">
+        </video>
+        <video id="touchdown-effect-light" preload="auto">
+          <source src="/video/Touchdown-effect-light.mov.webm" type="video/ogg">
+        </video>
+
+        <img src="/img/logo-l.png" />
+        <div class="text">touchdown</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-holder">
+    <video id="touchdown-flare-in" preload="auto">
+      <source src="/video/TouchDown-flare-in.mov.webm" type="video/ogg">
+    </video>
+  </div>
+  <div class="video-holder">
+    <video id="touchdown-flare-out" preload="auto">
+      <source src="/video/TouchDown-flare-out.mov.webm" type="video/ogg">
+    </video>
+  </div>
+
+  <!-- <div class="video-holder">
+    <video id="video-in">
+      <source src="/video/In-Ani2.webm" type="video/ogg">
+    </video>
+  </div>
+  <div class="video-holder">
+    <video id="video-out">
+      <source src="/video/Out-Ani2.webm" type="video/ogg">
+    </video>
+  </div>
+ -->
+  <!-- <div id="template-overlay"></div> -->
+
+  <script src="/dist/bundle.js"></script>
+  <script type="text/javascript">
+    window.setupRenderer();
+  </script>
+</body>
+</html>

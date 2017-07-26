@@ -1,0 +1,95 @@
+// @import "bootstrap-sprockets";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+@import "node_modules/bootswatch/darkly/variables";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/bootswatch/darkly/bootswatch";
+
+body {
+  padding-top: 50px;
+}
+
+.scorenext {
+  color: $brand-warning;
+}
+
+.btn-team-l {
+  // TODO better
+  @extend .btn-warning;
+}
+
+.btn-team-r {
+  // TODO better
+  @extend .btn-primary;
+}
+
+.btn-quarter {
+  @extend .btn-default;
+
+  &.on {
+    background-color: $brand-success;
+  }
+  &.next {
+    background-color: $brand-warning !important;
+  }
+}
+
+.btn-score {
+  @extend .btn-default;
+
+  margin-bottom: 5px;
+
+  &.next {
+    background-color: $brand-warning !important;
+  }
+}
+
+.btn-possession {
+  @extend .btn-default;
+
+  &.on {
+    background-color: $brand-success;
+  }
+  &.next {
+    background-color: $brand-warning !important;
+  }
+}
+
+.btn-downs {
+  @extend .btn-default;
+
+  &.on {
+    background-color: $brand-success;
+  }
+  &.next {
+    background-color: $brand-warning !important;
+  }
+}
+
+.btn-timeouts {
+  @extend .btn-default;
+
+  &.on {
+    background-color: $brand-success;
+  }
+  &.next {
+    background-color: $brand-warning !important;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.btn-flag {
+  @extend .btn-default;
+
+  &.on {
+    background-color: $brand-danger;
+  }
+  &.off {
+    background-color: $brand-success;
+  }
+  &.next {
+    background-color: $brand-warning !important;
+  }
+}

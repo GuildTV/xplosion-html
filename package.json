@@ -20,5 +20,9 @@
     "style-loader": "^0.18.2",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.6.1"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "bootswatch": "^3.3.7"
   }
 }
