@@ -11,7 +11,7 @@ const init = { method: 'GET',
                cache: 'default' }
 
 function sync(){
-  fetch('http://10.42.13.111:5000/api/main', init).then(r => r.json()).then(j => {
+  fetch('/api/main', init).then(r => r.json()).then(j => {
     window.CurrentState = j;
     renderState();
   });
@@ -204,7 +204,7 @@ document.querySelector('.commit').onclick = () => {
     cache: 'default'
   };
   // TODO - locking to prevent double submit
-  fetch('http://10.42.13.111:5000/api/main', init).then(r => r.json()).then(j => {
+  fetch('/api/main', init).then(r => r.json()).then(j => {
     window.CurrentState = j;
     window.NextState = {};
     renderState();

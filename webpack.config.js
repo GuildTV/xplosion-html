@@ -28,6 +28,10 @@ var config = {
   },
   devServer: {
     contentBase: __dirname + '/public',
+    proxy: {
+      "/api": "http://localhost:5000",
+      "/ws": { target: "ws://localhost:5000", ws: true }
+    },
   },
 
   devtool: "eval-source-map", // Default development sourcemap

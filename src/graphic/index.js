@@ -16,7 +16,8 @@ require("./touchdown");
 //   document.body.classList.remove("in");
 // }
 
-window.socket = new WebSocket("ws://10.42.13.111:5000/ws");
+
+window.socket = new WebSocket("ws://" + window.location.host + "/ws");
 window.socket.onmessage = function (event) {
   const data = JSON.parse(event.data);
   console.log("Got data:", data);

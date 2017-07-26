@@ -10,7 +10,7 @@
   font-size: 50px;
   text-align: center;
   vertical-align: middle;
-  line-height: 1;
+  line-height: 1.05;
   color: $text-light;
 
   &> div {
@@ -49,7 +49,7 @@
     height: 47px;
 
     .text {
-      margin-top: -2px;
+      margin-top: -3px;
     }
   }
 
