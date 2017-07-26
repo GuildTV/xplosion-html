@@ -55,17 +55,9 @@ namespace xplosion.Controllers
         [HttpPost]
         public GraphicsState Post([FromBody]StateUpdate update)
         {
-            // Console.WriteLine(value);
-            try
-            {
-                // StateUpdate update = JsonConvert.DeserializeObject<StateUpdate>(value);
-                if (update != null && update.Updates != null)
-                    Console.WriteLine("Got {0} updates", update.Updates.Count);
+            if (update != null && update.Updates != null) {
+                Console.WriteLine("Got {0} updates", update.Updates.Count);
                 HandleState(update);
-            }
-            catch (Exception e)
-            {
-                // TODO
             }
 
             return Get();

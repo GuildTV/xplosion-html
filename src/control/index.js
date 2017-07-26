@@ -29,14 +29,32 @@ function renderState(){
 
   renderQuarter(state, next);
   renderFlag(state, next);
-  renderPossession(state, next);
-  renderTimeouts(state, next);
+  renderAuto(state, next, "possession");
+  renderAuto(state, next, "timeoutsL");
+  renderAuto(state, next, "timeoutsR");
   renderScore(state, next);
-  renderDowns(state, next);
+  renderAuto(state, next, "downs");
+  renderGains(state, next);
 }
 
 function renderQuarter(state, next){
-  renderAuto(state, next, "quarter");
+  // renderAuto(state, next, "quarter"); // Old buttons
+  const elm = document.querySelector('#quarter-select');
+  elm.classList.remove("pending");
+
+  if (next.quarter !== undefined)
+    elm.classList.add("pending");
+
+  classRemoveAll(document.querySelectorAll('#quarter-select option'), ['current', 'pending']);
+  const opt = document.querySelector('#quarter-select option[value="'+state.quarter+'"]');
+  if (opt !== null)
+    opt.classList.add("current");
+
+  const opt2 = document.querySelector('#quarter-select option[value="'+next.quarter+'"]');
+  if (next.quarter !== undefined && opt2 !== null)
+    opt2.selected = true;
+  else if (opt !== null)
+    opt.selected = true;
 }
 
 function renderFlag(state, next){
@@ -48,42 +66,52 @@ function renderFlag(state, next){
     elm.classList.add('next');
 }
 
-function renderPossession(state, next){
-  renderAuto(state, next, "possession");
-}
-
-function renderDowns(state, next){
-  renderAuto(state, next, "downs");
-}
-
-function renderTimeouts(state, next){
-  renderAuto(state, next, "timeoutsL");
-  renderAuto(state, next, "timeoutsR");
-}
-
 function renderAuto(state, next, key){
-  classRemoveAll(document.querySelectorAll('.btn[data-key="'+key+'"]'), ['on', 'next']);
+  classRemoveAll(document.querySelectorAll('.btn[data-key="'+key+'"]'), ['current', 'pending']);
   const elm = document.querySelector('.btn[data-key="'+key+'"][data-value="'+state[key]+'"]')
   if (elm !== null)
-    elm.classList.add('on');
+    elm.classList.add('current');
   if (next[key] !== undefined){
     const elm2 = document.querySelector('.btn[data-key="'+key+'"][data-value="'+next[key]+'"]')
     if (elm2 !== null)
-      elm2.classList.add('next');
+      elm2.classList.add('pending');
   }
 }
 
 function renderScore(state, next){
-  const scoreL = document.querySelector('#scoreLNext');
-  const scoreR = document.querySelector('#scoreRNext');
+  const scoreLNext = document.querySelector('#scoreLNext');
+  const scoreRNext = document.querySelector('#scoreRNext');
+  const scoreLCurrent = document.querySelector('#scoreLCurrent');
+  const scoreRCurrent = document.querySelector('#scoreRCurrent');
 
-  scoreL.innerText = next.scoreL === undefined ? "" : "("+next.scoreL+")";
-  scoreR.innerText = next.scoreR === undefined ? "" : "("+next.scoreR+")";
+  scoreLNext.innerText = next.scoreL === undefined ? "" : "("+next.scoreL+")";
+  scoreRNext.innerText = next.scoreR === undefined ? "" : "("+next.scoreR+")";
+  scoreLCurrent.innerText = "("+state.scoreL+")";
+  scoreRCurrent.innerText = "("+state.scoreR+")";
 
-  classRemoveAll(document.querySelectorAll('.btn-score'), ['next']);
+  classRemoveAll(document.querySelectorAll('.btn-score'), ['pending']);
   if (next.touchdown !== undefined)
-    document.querySelector('.btn-touchdown[data-touchdown="'+next.touchdown+'"]').classList.add("next");
+    document.querySelector('.btn-touchdown[data-touchdown="'+next.touchdown+'"]').classList.add("pending");
 }
+
+function renderGains(state, next){
+  const gainsCurrent = document.querySelector('#gainsCurrent');
+  const gainsNext = document.querySelector('#gainsNext');
+
+  gainsNext.innerText = next.gains === undefined ? "" : "("+next.gains+")";
+  gainsCurrent.innerText = "("+state.gains+")";
+
+  const sliderVal = next.gains === undefined ? state.gains : next.gains;
+  document.querySelector('#gains-slider').value = sliderVal;
+}
+
+document.querySelector('#gains-slider').oninput = () => {
+  const val = document.querySelector('#gains-slider').value;
+
+  window.NextState.gains = val;
+
+  renderState();
+};
 
 document.querySelectorAll('.btn-flag').forEach(e => {
   e.onclick = () => {
@@ -98,14 +126,13 @@ function btnAutoHandler(e) {
   
   const key = e.getAttribute('data-key');
   const clear = e.hasAttribute('data-clear');
-  const touchdown = e.hasAttribute('data-touchdown');
 
   const current = window.NextState[key] === undefined ? window.CurrentState[key] : window.NextState[key];
   let next = current;
   if (e.hasAttribute('data-delta'))
-    next += parseInt(e.getAttribute('data-delta'));
+    next = parseInt(next) + parseInt(e.getAttribute('data-delta'));
   if (e.hasAttribute('data-value'))
-    next = parseInt(e.getAttribute('data-value'));
+    next = e.getAttribute('data-value');
 
   if (next == window.CurrentState[key] || clear)
     window.NextState[key] = undefined
@@ -115,11 +142,22 @@ function btnAutoHandler(e) {
   renderState();
 }
 
+document.querySelectorAll('.btn-gains').forEach(e => e.onclick = btnAutoHandler);
 document.querySelectorAll('.btn-possession').forEach(e => e.onclick = btnAutoHandler);
 document.querySelectorAll('.btn-downs').forEach(e => e.onclick = btnAutoHandler);
 document.querySelectorAll('.btn-timeouts').forEach(e => e.onclick = btnAutoHandler);
 document.querySelectorAll('.btn-quarter').forEach(e => e.onclick = btnAutoHandler);
+document.querySelector('#quarter-select').onchange = (e) => {
+  const newElm = document.querySelector('#quarter-select option:checked');
+  const newVal = newElm.getAttribute('value');
 
+  if (newVal == window.CurrentState.quarter)
+    window.NextState.quarter = undefined;
+  else
+    window.NextState.quarter = newVal;
+
+  renderState();
+}
 
 document.querySelectorAll('.btn-score').forEach(elm=> {
   elm.onclick = e => {
@@ -128,7 +166,6 @@ document.querySelectorAll('.btn-score').forEach(elm=> {
       if (e2.hasAttribute('data-clear')){
         if (window.NextState.touchdown == e2.getAttribute('data-touchdown'))
           window.NextState.touchdown = undefined;
-      
       } else {
         window.NextState.touchdown = e2.getAttribute('data-touchdown');
       }
@@ -137,7 +174,6 @@ document.querySelectorAll('.btn-score').forEach(elm=> {
     btnAutoHandler(e);
   };
 });
-
 
 document.querySelector('.commit').onclick = () => {
   const changes = [];
@@ -150,13 +186,15 @@ document.querySelector('.commit').onclick = () => {
 
   console.log("Sending changes:", changes)
 
-const init = { method: 'POST',
-               body: JSON.stringify({ Updates: changes }),
-               headers: {
-                 'Accept': 'application/json',
-                 'Content-Type': 'application/json'
-               },
-               cache: 'default' }
+  const init = { 
+    method: 'POST',
+    body: JSON.stringify({ Updates: changes }),
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    cache: 'default'
+  };
   // TODO - locking to prevent double submit
   fetch('http://localhost:5000/api/main', init).then(r => r.json()).then(j => {
     window.CurrentState = j;

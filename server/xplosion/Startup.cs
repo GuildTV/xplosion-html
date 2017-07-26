@@ -18,20 +18,19 @@ namespace xplosion
         {
             services.AddMvc();
             services.AddCors(options =>
-{
-    options.AddPolicy("AllowAllOrigins",
-    builder =>
-    {
-        builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
-    });
-});
+            {
+                options.AddPolicy("AllowAllOrigins",
+                builder =>
+                {
+                    builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseMvc();
-            // app.UseCors(b => b.WithOrigins("http://localhost:8080").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             app.UseCors("AllowAllOrigins");
 
             app.UseStaticFiles();
