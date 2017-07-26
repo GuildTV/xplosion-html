@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace xplosion.State
@@ -56,5 +57,26 @@ namespace xplosion.State
         public uint Downs { get; set; }
         [JsonProperty("gains")]
         public string Gains { get; set; }
+    }
+
+    public class GraphicsStateWithTriggers : GraphicsState
+    {
+        public GraphicsStateWithTriggers(GraphicsState state, Dictionary<string, string> triggers)
+        {
+            Quarter = state.Quarter;
+            ScoreL = state.ScoreL;
+            ScoreR = state.ScoreR;
+            TimeoutsL = state.TimeoutsL;
+            TimeoutsR = state.TimeoutsR;
+            Possession = state.Possession;
+            Flag = state.Flag;
+            Downs = state.Downs;
+            Gains = state.Gains;
+
+            Triggers = triggers;
+        }
+
+        [JsonProperty("triggers")]
+        public Dictionary<string, string> Triggers { get; set; }
     }
 }

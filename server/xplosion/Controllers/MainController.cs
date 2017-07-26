@@ -31,6 +31,8 @@ namespace xplosion.Controllers
             Downs, Gains,
 
             Flag,
+
+            Touchdown,
         }
 
         public UpdateKey Key { get; set; }
@@ -59,18 +61,19 @@ namespace xplosion.Controllers
             if (update != null && update.Updates != null)
             {
                 Console.WriteLine("Got {0} updates", update.Updates.Count);
-                HandleState(update);
-                WebsocketMiddleware.SendToAllAsync(JsonConvert.SerializeObject(GraphicsState.Instance));
+                var tempState = HandleState(update);
+                WebsocketMiddleware.SendToAllAsync(JsonConvert.SerializeObject(tempState));
             }
 
             return Get();
         }
 
-        private void HandleState(StateUpdate update)
+        private GraphicsStateWithTriggers HandleState(StateUpdate update)
         {
             lock (GraphicsState.Instance)
             {
                 GraphicsState state = GraphicsState.Instance;
+                var triggers = new Dictionary<string, string>();
 
                 foreach (StateUpdateEntry entry in update.Updates)
                 {
@@ -110,11 +113,17 @@ namespace xplosion.Controllers
                             state.Gains = entry.Value;
                             break;
 
+                        case StateUpdateEntry.UpdateKey.Touchdown:
+                            triggers.Add("touchdown", entry.Value);
+                            break;
+
                         default:
                             Console.WriteLine("Unhandled update key {0}", entry.Key);
                             break;
                     }
                 }
+
+                return new GraphicsStateWithTriggers(state, triggers);
             }
         }
 

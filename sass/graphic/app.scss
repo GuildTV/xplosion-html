@@ -9,6 +9,13 @@
 @import "bar-text";
 @import "video";
 
+body {
+  // background: #00ff00;
+  transition: opacity 0.25s;
+  transition-delay: 0.5s;
+  opacity: 1;
+}
+
 #content-mask {
   // width: 0;
   width: 100vw;

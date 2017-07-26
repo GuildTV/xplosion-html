@@ -10,10 +10,14 @@ const init = { method: 'GET',
                headers: { 'Accept': 'application/json' },
                cache: 'default' }
 
-fetch('http://10.42.13.111:5000/api/main', init).then(r => r.json()).then(j => {
-  window.CurrentState = j;
-  renderState();
-})
+function sync(){
+  fetch('http://10.42.13.111:5000/api/main', init).then(r => r.json()).then(j => {
+    window.CurrentState = j;
+    renderState();
+  });
+}
+sync();
+document.querySelector('.sync').onclick = sync;
 
 function classRemoveAll(elms, cl){
   if (elms === null || elms === undefined)
@@ -178,9 +182,13 @@ document.querySelectorAll('.btn-score').forEach(elm=> {
 document.querySelector('.commit').onclick = () => {
   const changes = [];
   Object.keys(window.NextState).forEach(k => {
+    const v = window.NextState[k];
+    if (v === undefined)
+      return;
+
     changes.push({
       key: k,
-      value: window.NextState[k]
+      value: v
     });
   })
 

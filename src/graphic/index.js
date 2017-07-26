@@ -64,6 +64,19 @@ function renderState(state){
   document.body.classList.remove("flag");
   if (state.flag)
     document.body.classList.add("flag");
+
+  if (state.triggers) {
+    switch (state.triggers.touchdown){
+      case 1:
+      case "1":
+        window.showTouchdown("l");
+        break;
+      case 2:
+      case "2":
+        window.showTouchdown("r");
+        break;
+    }
+  }
 }
 
 function getQuarterText(state){
