@@ -57,3 +57,13 @@ body {
 
   background-image: url("/img/template-overlay.png");
 }
+
+.bar-handles {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-image: url("/img/bar-handles.png");
+}
