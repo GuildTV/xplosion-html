@@ -15,6 +15,7 @@ window.showTouchdown = function(team) { // team = "l" or "r"
   if (touchdownTimer !== null)
     return;
 
+  touchdownTimer = 1; // temp value
   flareIn.play().catch(e => flareInPlaying());
   vidDark.currentTime = 0;
   vidLight.currentTime = 0;
@@ -23,6 +24,8 @@ window.showTouchdown = function(team) { // team = "l" or "r"
 }
 
 function flareInPlaying(){
+  if (touchdownTimer !== null && touchdownTimer != 1)
+    return;
   touchdownTimer = setTimeout(function(){
     // start css transition
     document.body.classList.add("touchdown-in", "touchdown-ani");
