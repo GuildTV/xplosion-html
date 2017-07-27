@@ -16,6 +16,9 @@ require("./touchdown");
 //   document.body.classList.remove("in");
 // }
 
+document.querySelector('#team-l .text').innerText = window.teams.leftInitials;
+document.querySelector('#team-r .text').innerText = window.teams.rightInitials;
+
 
 window.socket = new WebSocket("ws://" + window.location.host + "/ws");
 window.socket.onmessage = function (event) {

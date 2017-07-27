@@ -19,6 +19,9 @@ function sync(){
 sync();
 document.querySelector('.sync').onclick = sync;
 
+document.querySelector('#teamLName').innerText = window.teams.leftName;
+document.querySelector('#teamRName').innerText = window.teams.rightName;
+
 function classRemoveAll(elms, cl){
   if (elms === null || elms === undefined)
     return;
@@ -203,7 +206,7 @@ document.querySelector('.commit').onclick = () => {
     },
     cache: 'default'
   };
-  // TODO - locking to prevent double submit
+  // TODO - if delta changes are added, then some locking will be wanted on this
   fetch('/api/main', init).then(r => r.json()).then(j => {
     window.CurrentState = j;
     window.NextState = {};

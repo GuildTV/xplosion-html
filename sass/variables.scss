@@ -1,15 +1,13 @@
-
+// These colours should not be modidifed
 $text-dark: #363636;
 $text-light: #e5e5e5;
 
-// $in-out-duration: 1.2s;
-// $in-out-trigger: 0.78s;
 
-
+// These colours can be changed to match the teams. 
+// The bg colours are gradients used for both the team name and the touchdown overlay
 $team-l-color-text: $text-dark;
 $team-l-color-bg1: #fdfdfd;
 $team-l-color-bg2: darken($team-l-color-bg1, 26%);
-
 
 $team-r-color-text: $text-light;
 $team-r-color-bg1: #365f98;

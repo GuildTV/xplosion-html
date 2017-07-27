@@ -1,4 +1,6 @@
 
+require("../config.js");
+
 window.setupRenderer = function() {
   require("./graphic");
 };
