@@ -4,7 +4,7 @@
   -webkit-mask-position-x: 920px;
   -webkit-mask-repeat: no-repeat;
 
-  transition: -webkit-mask-position-x 0.44s;
+  transition: -webkit-mask-position-x 0.5s;
 
   position: absolute;
   top: 36px;
@@ -33,8 +33,6 @@
 
     border: 2px solid #282828;
     border-radius: 5px;
-
-    // opacity: 0.5
   }
 
   img {

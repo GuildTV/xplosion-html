@@ -117,7 +117,7 @@ function getDownsAndGains(state){
     return gains;
   if (gains == "")
     return downs;
-  return downs + "&" + gains;
+  return downs + " & " + gains;
 }
 
 function classRemoveAll(elms, cl){
