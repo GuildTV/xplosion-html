@@ -1,14 +1,12 @@
 sudo: required
 
-# branches:
-#   only:
-#     - master
+dotnet: 2.0.0-preview2
+dist: trusty
 
 services:
   - docker
 
 script:
-  - docker build -t guildtv/website:xposion-gfx-$TRAVIS_COMMIT .
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push guildtv/website:xposion-gfx-$TRAVIS_COMMIT
+  - ./build.sh $TRAVIS_BUILD_NUMBER
   - echo "Deploying"
