@@ -1,4 +1,12 @@
 
+#bar-outline, #flag .text {
+  font-size: 50px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.05;
+  color: $text-light;
+}
+
 #bar-outline {
   position: absolute;
   top: 55px;
@@ -6,12 +14,6 @@
 
   width: 880px;
   height: 50px;
-
-  font-size: 50px;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 1.05;
-  color: $text-light;
 
   &> div {
     position: absolute;

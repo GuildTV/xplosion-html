@@ -1,6 +1,6 @@
 
 #flag-outer {
-  width: 0;
+  // width: 0;
   height: 80px;
 
   position: absolute;
@@ -13,13 +13,22 @@
 
 
   #flag {
-    width: 200px;
-    height: 80px;
-
-    background-image: url("/img/flag.png");
+    width: 189px;
+    height: 55px;
 
     float: right;
     right: 0;
+    margin-top: 13px;
+    text-align: center;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f4d529+9,9b8734+92&0+0,1+9,1+92,0+100 */
+    background: linear-gradient(180deg, rgba(244,213,41,0) 0%,rgba(244,213,41,1) 9%,rgba(155,135,52,1) 92%,rgba(155,135,52,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    .text {
+      color: white;
+      line-height: 1.08;
+      margin-right: 10px;
+    }
   }
 }
 

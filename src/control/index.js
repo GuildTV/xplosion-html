@@ -124,6 +124,7 @@ document.querySelectorAll('.btn-flag').forEach(e => {
     window.NextState.flag = (window.NextState.flag === undefined) ? !window.CurrentState.flag : undefined;
 
     renderState();
+    return false;
   };
 });
 
@@ -146,6 +147,7 @@ function buttonGroupHandler(e) {
     window.NextState[key] = next;
 
   renderState();
+  return false;
 }
 
 document.querySelectorAll('.btn-gains').forEach(e => e.onclick = buttonGroupHandler);
@@ -178,6 +180,7 @@ document.querySelectorAll('.btn-score').forEach(elm=> {
     }
 
     buttonGroupHandler(e);
+    return false;
   };
 });
 
