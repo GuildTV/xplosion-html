@@ -19,7 +19,6 @@ require("./touchdown");
 document.querySelector('#team-l .text').innerText = window.teams.leftInitials;
 document.querySelector('#team-r .text').innerText = window.teams.rightInitials;
 
-
 window.socket = new WebSocket("ws://" + window.location.host + "/ws");
 window.socket.onmessage = function (event) {
   const data = JSON.parse(event.data);
@@ -80,7 +79,22 @@ function renderState(state){
         window.showTouchdown("r");
         break;
     }
+
+    if (state.triggers.flag)
+      doFlag(state);
   }
+}
+
+let flagTimer = null;
+function doFlag(state){
+  if (flagTimer !== null)
+    return;
+
+  document.body.classList.add("flag");
+  flagTimer = setTimeout(() => {
+    document.body.classList.remove("flag");
+    flagTimer = null;
+  }, 5000); // Flag show duration
 }
 
 function getQuarterText(state){

@@ -66,9 +66,8 @@ function renderQuarter(state, next){
 
 function renderFlag(state, next){
   const elm = document.querySelector('.btn-flag')
-  elm.classList.remove('on', 'off', 'next');
+  elm.classList.remove('next');
 
-  elm.classList.add(state.flag ? 'on' : 'off');
   if (next.flag !== undefined)
     elm.classList.add('next');
 }

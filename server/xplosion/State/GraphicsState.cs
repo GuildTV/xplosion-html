@@ -54,9 +54,6 @@ namespace xplosion.State
         [JsonProperty("possession")]
         public Possession Possession { get; set; }
 
-        [JsonProperty("flag")]
-        public bool Flag { get; set; }
-
         [JsonProperty("downs")]
         public uint Downs { get; set; }
         [JsonProperty("gains")]
@@ -73,7 +70,6 @@ namespace xplosion.State
             TimeoutsL = state.TimeoutsL;
             TimeoutsR = state.TimeoutsR;
             Possession = state.Possession;
-            Flag = state.Flag;
             Downs = state.Downs;
             Gains = state.Gains;
 

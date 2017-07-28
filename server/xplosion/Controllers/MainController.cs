@@ -30,9 +30,7 @@ namespace xplosion.Controllers
 
             Downs, Gains,
 
-            Flag,
-
-            Touchdown,
+            Flag, Touchdown,
         }
 
         public UpdateKey Key { get; set; }
@@ -107,7 +105,7 @@ namespace xplosion.Controllers
                             break;
 
                         case StateUpdateEntry.UpdateKey.Flag:
-                            HandleBool(entry, v => state.Flag = v);
+                            triggers.Add("flag", "1");
                             break;
 
                         case StateUpdateEntry.UpdateKey.Downs:
