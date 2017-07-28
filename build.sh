@@ -1,7 +1,8 @@
 #!/bin/bash
 
 rm -Rf dist
-npm run dist
+yarn
+yarn run dist
 
 cd server/xplosion
 
