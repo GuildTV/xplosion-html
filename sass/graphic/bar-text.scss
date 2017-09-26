@@ -1,10 +1,33 @@
 
 #bar-outline, #flag .text {
-  font-size: 50px;
+  font-size: 36px;
   text-align: center;
   vertical-align: middle;
   line-height: 1.05;
   color: $text-light;
+}
+
+body.in #bar-outline {
+  #box-left {
+    transition-delay: 0s;
+    top: 0;
+  }
+
+  #score-left, #team-l {
+    transition-delay: 0.1s;
+    top: 0;
+  }
+
+  #score-right, #team-r{
+    transition-delay: 0.2s;
+    top: 0;
+  }
+
+  #box-right {
+    transition-delay: 0.3s;
+    top: 0;
+  }
+
 }
 
 #bar-outline {
@@ -13,64 +36,144 @@
   left: 520px;
 
   width: 880px;
-  height: 50px;
+  height: 54px;
+
+  overflow: hidden;
 
   &> div {
     position: absolute;
-    top: 0;
+    top: 58px;
 
     height: 100%;
 
-    // background: #fff;
+    display: inline-flex;
+    align-items: center;
+
+    transition: top 0.28s;
+    transition-timing-function: linear;
+
+    span {
+      margin: auto;
+      margin-top: 14px;
+    }
+  }
+
+  .feather {
+    width: 5px;
+    position: absolute;
+    top: 0px;
+    height: 54px;
+    left: -5px;
+    background: linear-gradient(90deg, transparent, #000);
+    opacity: 0.55;
+
+    &.f-wide {
+      width: 8px;
+      left: -8px;
+    }
+
+    &.f-wide-right {
+      width: 8px;
+      right: -8px;
+      left: auto;
+      transform: rotate(180deg);
+    }
   }
 
   #box-left {
     left: 0;
-    width: 230px
+    width: 232px;
+    background: linear-gradient(#354863, #0f1a29);
+
+    z-index: 100;
+    font-size: 30px;
+    justify-content: space-around;
+
+    transition-delay: 0.3s;
+
+    #quarter, #clock {
+      display: inline-block;
+
+      margin-top: 5px;
+    }
+
+    #quarter {
+      text-align: left;
+      margin-left: -10px;
+    }
+    #clock {
+      text-align: right;
+      margin-right: -10px;
+    }
   }
 
   #score-left {
-    left: 360px;
-    width: 90px;
+    left: 398px;
+    width: 62px;
+
+    z-index: 106;
+
+    transition-delay: 0.2s;
   }
   #score-right {
-    left: 600px;
-    width: 85px
+    left: 460px;
+    width: 62px;
+
+    z-index: 111;
+
+    transition-delay: 0.1s;
   }
 
   #box-right {
-    left: 690px;
-    width: 190px;
+    left: 688px;
+    width: 192px;
+    background: linear-gradient(#354863, #0f1a29);
+
+    z-index: 120;
+    font-size: 30px;
+
+    transition-delay: 0s;
   }
 
   #team-l, #team-r {
     display: flex;
     justify-content: space-around;
 
-    top: 0.5px;
-    height: 47px;
+    height: 54px;
 
     .text {
-      margin-top: -3px;
+      margin-top: 10px;
+      text-align: center;
     }
   }
 
   #team-l {
-    left: 237px;
-    width: 122px;
+    left: 232px;
+    width: 166px;
 
+    z-index: 105;
+
+    transition-delay: 0.2s;
+  }
+
+  #team-l, #score-left {
     color: $team-l-color-text;
-    background: linear-gradient($team-l-color-bg1, $team-l-color-bg2);
-    border: 2px solid #282828;
+    background: linear-gradient($team-l-color-bg1, $team-l-color-bg2); 
   }
 
   #team-r {
-    left: 457px;
-    width: 139px;
+    left: 522px;
+    width: 166px;
 
+    z-index: 110;
+
+    transition-delay: 0.1s;
+  }
+
+  #team-r, #score-right {
     color: $team-r-color-text;
     background: linear-gradient($team-r-color-bg1, $team-r-color-bg2);
-    border: 2px solid #282828;
   }
+
 
 }

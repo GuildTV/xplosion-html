@@ -1,21 +1,6 @@
 require("../../sass/graphic/app.scss");
 require("./touchdown");
 
-// window.playIn = function() {
-//   const inVideo = document.querySelector('#video-in');
-//   inVideo.play();
-//   // setTimeout(function(){
-//     document.body.classList.add("in");
-
-//   // }, 780);
-// }
-
-// window.playOut = function() {
-//   const outVideo = document.querySelector('#video-out');
-//   outVideo.play();
-//   document.body.classList.remove("in");
-// }
-
 document.querySelector('#team-l .text').innerText = window.teams.leftInitials;
 document.querySelector('#team-r .text').innerText = window.teams.rightInitials;
 
@@ -27,13 +12,22 @@ window.socket.onmessage = function (event) {
   renderState(data);
 }
 
+window.setIn = function(){
+  document.body.classList.add("in");
+}
+
+window.setOut = function(){
+  document.body.classList.remove("in");
+}
+
 function renderState(state){
 
-  document.querySelector('#box-left').innerText = getDownsAndGains(state);
-  document.querySelector('#box-right').innerText = getQuarterText(state);
+  document.querySelector('#box-right .content').innerText = getDownsAndGains(state);
+  document.querySelector('#box-left #quarter').innerText = getQuarterText(state);
+  document.querySelector('#box-left #clock').innerText = "99:99";
 
-  document.querySelector('#score-left').innerText = state.scoreL;
-  document.querySelector('#score-right').innerText = state.scoreR;
+  document.querySelector('#score-left .content').innerText = pad(state.scoreL, 2);
+  document.querySelector('#score-right .content').innerText = pad(state.scoreR, 2);
 
   document.body.classList.remove("possession-left", "possession-right");
   switch(state.possession){
@@ -142,4 +136,12 @@ function classRemoveAll(elms, cl){
     return;
 
   elms.forEach(e => e.classList.remove(...cl));
+}
+
+function pad(val, len) {
+  val = val + "";
+  if (val.length < len)
+    return pad("0"+val, len);
+
+  return val;
 }

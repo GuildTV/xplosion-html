@@ -14,12 +14,21 @@ html, body {
   -webkit-font-smoothing:antialiased !important;           /* Set aliasing of fonts - possible options: none, antialiased,  subpixel-antialiased */
 }
 
+// body {
+//   font-family: "AlegreSans";
+// }
+
+// @font-face {
+//   font-family: "AlegreSans";
+//   src: url("/font/Alegre Sans.ttf");
+// }
+
+
 body {
-  font-family: "AlegreSans";
+  font-family: "TradeGothic";
 }
 
 @font-face {
-  font-family: "AlegreSans";
-  src: url("/font/Alegre Sans.ttf");
+  font-family: "TradeGothic";
+  src: url("/font/TradeGothicLTStd-Bd2.otf");
 }
-

@@ -7,13 +7,14 @@
 @import "flag";
 @import "touchdown";
 @import "bar-text";
-@import "video";
 
 body {
   // background: #00ff00;
   transition: opacity 0.25s;
   transition-delay: 0.5s;
   opacity: 1;
+  // background-image: url("/img/template1.png");
+  // background-position: -10px 55px;
 }
 
 #content-mask {
@@ -43,27 +44,6 @@ body {
     width: 936px;
     height: 94px;
 
-    background-image: url("/img/bar-bg.png");
+    // background-image: url("/img/bar-bg.png");
   }
-}
-
-#template-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100vw;
-  height: 100vh;
-
-  background-image: url("/img/template-overlay.png");
-}
-
-.bar-handles {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  background-image: url("/img/bar-handles.png");
 }

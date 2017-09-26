@@ -8,43 +8,58 @@
     }
   </style>
 </head>
-<body class="possession-left possession-right">
+<body class="possession-left possession-right in">
 
   <div id="content-mask">
     <div id="content">
       <div id="bar-bg"></div>
 
       <div id="bar-outline">
-        <div id="box-left"></div>
-        <div id="box-right"></div>
+        <div id="box-left">
+          <div id="quarter"></div>
+          <div id="clock"></div>
+        </div>
+        <div id="box-right">
+          <div class="feather"></div>
+          <span class="content"></span>
+        </div>
 
-        <div id="score-left"></div>
-        <div id="score-right"></div>
+        <div id="score-left">
+          <div class="feather f-wide"></div>
+          <span class="content"></span>
+        </div>
+        <div id="score-right">
+          <div class="feather"></div>
+          <div class="feather f-wide-right"></div>
+          <span class="content"></span>
+        </div>
 
         <div id="team-l">
-          <img src="/img/logo-l.png" />
+          <div class="feather"></div>
+          <!-- <img src="/img/logo-l.png" /> -->
 
-          <div id="possession-left-circle"></div>
+          <!-- <div id="possession-left-circle"></div> -->
 
           <span class="text"></span>
+
+          <div id="timeout-l1" class="timeL"></div>
+          <div id="timeout-l2" class="timeL"></div>
+          <div id="timeout-l3" class="timeL"></div>
         </div>
 
         <div id="team-r">
-          <img src="/img/logo-r.png" />
+          <!-- <img src="/img/logo-r.png" /> -->
 
-          <div id="possession-right-circle"></div>
+          <!-- <div id="possession-right-circle"></div> -->
 
           <span class="text"></span>
+
+          <div id="timeout-r1" class="timeR"></div>
+          <div id="timeout-r2" class="timeR"></div>
+          <div id="timeout-r3" class="timeR"></div>
         </div>
 
       </div>
-
-      <div id="timeout-l1" class="timeL"></div>
-      <div id="timeout-l2" class="timeL"></div>
-      <div id="timeout-l3" class="timeL"></div>
-      <div id="timeout-r1" class="timeR"></div>
-      <div id="timeout-r2" class="timeR"></div>
-      <div id="timeout-r3" class="timeR"></div>
 
       <div id="flag-outer">
         <div id="flag">
@@ -72,28 +87,6 @@
     </div>
   </div>
 
-  <div class="video-holder">
-    <video id="touchdown-flare-in" preload="auto">
-      <source src="/video/TouchDown-flare-in.mov.webm" type="video/ogg">
-    </video>
-  </div>
-  <div class="video-holder">
-    <video id="touchdown-flare-out" preload="auto">
-      <source src="/video/TouchDown-flare-out.mov.webm" type="video/ogg">
-    </video>
-  </div>
-
-  <!-- <div class="video-holder">
-    <video id="video-in">
-      <source src="/video/In-Ani2.webm" type="video/ogg">
-    </video>
-  </div>
-  <div class="video-holder">
-    <video id="video-out">
-      <source src="/video/Out-Ani2.webm" type="video/ogg">
-    </video>
-  </div>
- -->
   <!-- <div id="template-overlay"></div> -->
 
   <script src="/dist/bundle.js"></script>
