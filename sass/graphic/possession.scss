@@ -12,6 +12,7 @@ body.possession-right #possession-right {
   width: calc(100% - #{$possession-border} * 2);
   height: calc(100% - #{$possession-border} * 2) !important;
   border: $possession-border solid $text-light;
+  background: none !important;
 
   opacity: 0;
   transition: opacity 0.25s;
