@@ -24,7 +24,7 @@ function renderState(state){
 
   document.querySelector('#box-right .content').innerText = getDownsAndGains(state);
   document.querySelector('#box-left #quarter').innerText = getQuarterText(state);
-  document.querySelector('#box-left #clock').innerText = "99:99";
+  // document.querySelector('#box-left #clock').innerText = "99:99";
 
   document.querySelector('#score-left .content').innerText = pad(state.scoreL, 2);
   document.querySelector('#score-right .content').innerText = pad(state.scoreR, 2);
@@ -94,13 +94,13 @@ function doFlag(state){
 function getQuarterText(state){
   switch(state.quarter){
     case 1:
-      return "1st";
+      return "1st Quarter";
     case 2:
-      return "2nd";
+      return "2nd Quarter";
     case 3:
-      return "3rd";
+      return "3rd Quarter";
     case 4:
-      return "4th";
+      return "4th Quarter";
     default:
       return "";
   }
