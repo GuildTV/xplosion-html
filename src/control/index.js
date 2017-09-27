@@ -42,6 +42,7 @@ function renderState(){
   renderScore(state, next);
   renderButtonGroup(state, next, "downs");
   renderGains(state, next);
+  renderInOut(state, next);
 }
 
 function renderQuarter(state, next){
@@ -70,6 +71,18 @@ function renderFlag(state, next){
 
   if (next.flag !== undefined)
     elm.classList.add('next');
+}
+
+function renderInOut(state, next){
+  const elm = document.querySelector('.btn-inout')
+  elm.classList.remove('next', 'on', 'off');
+
+  if (next.in !== undefined)
+    elm.classList.add('next');
+  else if (state.in)
+    elm.classList.add('on');
+  else
+    elm.classList.add('off');
 }
 
 function renderButtonGroup(state, next, key){
@@ -122,6 +135,14 @@ document.querySelector('#gains-slider').oninput = () => {
 document.querySelectorAll('.btn-flag').forEach(e => {
   e.onclick = () => {
     window.NextState.flag = (window.NextState.flag === undefined) ? !window.CurrentState.flag : undefined;
+
+    renderState();
+    return false;
+  };
+});
+document.querySelectorAll('.btn-inout').forEach(e => {
+  e.onclick = () => {
+    window.NextState.in = (window.NextState.in === undefined) ? !window.CurrentState.in : undefined;
 
     renderState();
     return false;

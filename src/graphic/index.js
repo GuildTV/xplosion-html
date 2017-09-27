@@ -12,15 +12,10 @@ window.socket.onmessage = function (event) {
   renderState(data);
 }
 
-window.setIn = function(){
-  document.body.classList.add("in");
-}
-
-window.setOut = function(){
-  document.body.classList.remove("in");
-}
-
 function renderState(state){
+  document.body.classList.remove("in");
+  if (state.in)
+    document.body.classList.add("in");
 
   document.querySelector('#box-right .content').innerText = getDownsAndGains(state);
   updateWithAnimation(() => getQuarterText(state), "box-left");

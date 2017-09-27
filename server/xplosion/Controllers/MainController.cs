@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Runtime.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.WebSockets;
 using Newtonsoft.Json;
 using xplosion.State;
 
@@ -20,6 +16,8 @@ namespace xplosion.Controllers
     {
         public enum UpdateKey
         {
+            In, 
+
             Quarter,
 
             ScoreL, ScoreR,
@@ -82,6 +80,10 @@ namespace xplosion.Controllers
                     Console.WriteLine("Got {0}", entry.Key);
                     switch (entry.Key)
                     {
+                        case StateUpdateEntry.UpdateKey.In:
+                            HandleBool(entry, v => state.In = v);
+                            break;
+
                         case StateUpdateEntry.UpdateKey.Quarter:
                             HandleUint(entry, v => state.Quarter = v, 4);
                             break;

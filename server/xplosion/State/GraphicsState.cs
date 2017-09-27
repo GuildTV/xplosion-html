@@ -25,18 +25,12 @@ namespace xplosion.State
 
         public static GraphicsState Instance
         {
-            get
-            {
-                if (_instance != null)
-                    return _instance;
-
-                return _instance = new GraphicsState();
-            }
-            set
-            {
-                _instance = value;
-            }
+            get => _instance ?? (_instance = new GraphicsState());
+            set => _instance = value;
         }
+
+        [JsonProperty("in")]
+        public bool In { get; set; }
 
         [JsonProperty("quarter")]
         public uint Quarter { get; set; }
@@ -64,6 +58,7 @@ namespace xplosion.State
     {
         public GraphicsStateWithTriggers(GraphicsState state, Dictionary<string, string> triggers)
         {
+            In = state.In;
             Quarter = state.Quarter;
             ScoreL = state.ScoreL;
             ScoreR = state.ScoreR;

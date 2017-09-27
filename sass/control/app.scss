@@ -66,13 +66,27 @@ $colorPending: $brand-warning;
   // padding-bottom: 14px;
 }
 
-.btn-flag {
+.btn-flag{
   @extend .btn-default;
 
   &.on {
     background-color: $brand-danger;
   }
   &.off {
+    background-color: $colorLive;
+  }
+  &.next {
+    background-color: $brand-warning !important;
+  }
+}
+
+.btn-inout {
+  @extend .btn-default;
+
+  &.off {
+    background-color: $brand-danger;
+  }
+  &.on {
     background-color: $colorLive;
   }
   &.next {
