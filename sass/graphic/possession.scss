@@ -14,8 +14,10 @@ body.possession-right {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 130;
+
   width: calc(100% - #{$possession-border} * 2);
-  height: calc(100% - #{$possession-border} * 2);
+  height: calc(100% - #{$possession-border} * 2) !important;
   border: $possession-border solid $text-light;
 
   opacity: 0;

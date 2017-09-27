@@ -12,12 +12,12 @@ body.in #bar-outline {
     top: 0;
   }
 
-  #score-left, #team-l {
+  #team-l-outer {
     transition-delay: 0.1s;
     top: 0;
   }
 
-  #score-right, #team-r{
+  #team-r-outer {
     transition-delay: 0.2s;
     top: 0;
   }
@@ -107,22 +107,6 @@ body.in #bar-outline {
     }
   }
 
-  #score-left {
-    left: 398px;
-    width: 62px;
-
-    z-index: 106;
-
-    transition-delay: 0.2s;
-  }
-  #score-right {
-    left: 460px;
-    width: 62px;
-
-    z-index: 111;
-
-    transition-delay: 0.1s;
-  }
 
   #box-right {
     left: 688px;
@@ -135,45 +119,76 @@ body.in #bar-outline {
     transition-delay: 0s;
   }
 
+  #team-l-outer, #team-r-outer {
+    height: 54px;
+    width: 228px;
+
+    &> div {
+      position: absolute;
+      top: 0;
+      height: 100%;
+    }
+
+    #score-left, #score-right {    
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  #team-l-outer {
+    left: 232px;
+    z-index: 105;
+
+    transition-delay: 0.2s;
+
+    color: $team-l-color-text;
+    background: linear-gradient($team-l-color-bg1, $team-l-color-bg2); 
+
+
+    #score-left {
+      left: 166px;
+      width: 62px;
+
+      z-index: 106;
+    }
+
+    #team-l {
+      left: 0;
+    }
+  }
+
+  #team-r-outer {
+    left: 460px;
+    z-index: 110;
+
+    transition-delay: 0.1s;
+
+    color: $team-r-color-text;
+    background: linear-gradient($team-r-color-bg1, $team-r-color-bg2);
+
+    #score-right {
+      left: 0;
+      width: 62px;
+
+      z-index: 111;
+    }
+
+    #team-r {
+      left: 66px;
+    }
+  }
+
   #team-l, #team-r {
     display: flex;
     justify-content: space-around;
 
-    height: 54px;
+    height: 100%;
+    width: 166px;
 
     .text {
       // margin-top: 10px;
       text-align: center;
     }
   }
-
-  #team-l {
-    left: 232px;
-    width: 166px;
-
-    z-index: 105;
-
-    transition-delay: 0.2s;
-  }
-
-  #team-l, #score-left {
-    color: $team-l-color-text;
-    background: linear-gradient($team-l-color-bg1, $team-l-color-bg2); 
-  }
-
-  #team-r {
-    left: 522px;
-    width: 166px;
-
-    z-index: 110;
-
-    transition-delay: 0.1s;
-  }
-
-  #team-r, #score-right {
-    color: $team-r-color-text;
-    background: linear-gradient($team-r-color-bg1, $team-r-color-bg2);
-  }
-
 
 }
