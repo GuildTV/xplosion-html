@@ -1,13 +1,6 @@
-body.possession-left {
-  #possession-left {
-    opacity: 1 !important;
-  }
-}
-
-body.possession-right {
-  #possession-right {
-    opacity: 1 !important;
-  }
+body.possession-left #possession-left, 
+body.possession-right #possession-right {
+  opacity: 1 !important;
 }
 
 .possession {

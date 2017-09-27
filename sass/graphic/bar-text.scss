@@ -101,12 +101,11 @@ body.in #bar-outline {
       text-align: left;
       // margin-left: -10px;
     }
-    #clock {
-      text-align: right;
-      margin-right: -10px;
-    }
+    // #clock {
+    //   text-align: right;
+    //   margin-right: -10px;
+    // }
   }
-
 
   #box-right {
     left: 688px;
@@ -143,7 +142,6 @@ body.in #bar-outline {
 
     color: $team-l-color-text;
     background: linear-gradient($team-l-color-bg1, $team-l-color-bg2); 
-
 
     #score-left {
       left: 166px;

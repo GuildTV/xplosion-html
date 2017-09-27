@@ -9,10 +9,11 @@
 @import "bar-text";
 
 body {
-  // background: #00ff00;
   transition: opacity 0.25s;
   transition-delay: 0.5s;
   opacity: 1;
+  
+  // background: #00ff00;
   // background-image: url("/img/template1.png");
   // background-position: -10px 55px;
 }
@@ -36,14 +37,4 @@ body {
     height: 100vh;
   }
 
-  #bar-bg {
-    position: absolute;
-    top: 34px;
-    left: 490px;
-
-    width: 936px;
-    height: 94px;
-
-    // background-image: url("/img/bar-bg.png");
-  }
 }
