@@ -1,5 +1,5 @@
 // These colours should not be modidifed
-$text-dark: #363636;
+$text-dark: #282828;
 $text-light: #f5f5f5;
 
 
@@ -12,3 +12,6 @@ $team-l-color-bg2: darken($team-l-color-bg1, 10%);
 $team-r-color-text: $text-light;
 $team-r-color-bg1: #7c3e8c;
 $team-r-color-bg2: darken($team-r-color-bg1, 15%);
+
+
+$possession-border: 1.5px;

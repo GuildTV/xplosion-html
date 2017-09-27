@@ -1,31 +1,23 @@
-#possession-left-circle, #possession-right-circle {
-  margin-top: 20px;
-
-  width: 10px;
-  height: 10px !important;
-
-  border-radius: 5px;
-
-  opacity: 0;
-  transition: opacity 0.25s;
-}
-
-#possession-left-circle {
-  background: $team-l-color-text;
-}
-
-#possession-right-circle {
-  background: $team-r-color-text;
-}
-
 body.possession-left {
-  #possession-left-circle {
+  #possession-left {
     opacity: 1 !important;
   }
 }
 
 body.possession-right {
-  #possession-right-circle {
+  #possession-right {
     opacity: 1 !important;
   }
+}
+
+.possession {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - #{$possession-border} * 2);
+  height: calc(100% - #{$possession-border} * 2);
+  border: $possession-border solid $text-light;
+
+  opacity: 0;
+  transition: opacity 0.25s;
 }

@@ -58,9 +58,9 @@ function renderState(state){
       document.querySelector('#timeout-r1').classList.add('hidden');
   }
 
-  document.body.classList.remove("flag");
-  if (state.flag)
-    document.body.classList.add("flag");
+  // document.body.classList.remove("flag");
+  // if (state.flag)
+    // document.body.classList.add("flag");
 
   if (state.triggers) {
     switch (state.triggers.touchdown){
