@@ -1,0 +1,111 @@
+$ani-one-text-delay: 1s;
+$ani-one-text-dur: 0.66s;
+$ani-one-bg-delay: $ani-one-text-delay + $ani-one-text-dur + 0.5s;
+$ani-one-bg-dur: 0.44s;
+
+$ani-one-move-delay: $ani-one-bg-delay + $ani-one-bg-dur + 0.2s;
+$ani-one-move-dur: 0.2s;
+$ani-one-line2-show-delay: $ani-one-move-delay;
+$ani-one-line2-show-dur: 0s;
+
+$ani-two-hide-delay: $ani-one-line2-show-delay + $ani-one-line2-show-dur + 2.1s;
+$ani-two-hide-dur: 0.8s;
+$ani-two-swap-delay: $ani-two-hide-delay + 0.4s;
+$ani-two-swap-dur: 0s;
+
+body.in {
+
+	#line1 .text1 {
+		animation-delay: $ani-one-text-delay;
+		animation-name: lineOneTop;
+		animation-duration: $ani-one-text-dur;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease-out;
+
+		top: 103px;
+	}
+
+	#line1 .bg {
+		animation-delay: $ani-one-bg-delay;
+		animation-name: lineOneTop;
+		animation-duration: $ani-one-bg-dur;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease-out;
+
+    	top: 103px;
+	}
+
+	#line1 {
+		animation-delay: $ani-one-move-delay;
+		animation-name: lineOneTopOuter;
+		animation-duration: $ani-one-move-dur;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease-out;
+
+  		top: 47px;
+	}
+
+	#line2 {
+		animation-delay: $ani-one-line2-show-delay;
+		animation-name: showElm;
+		animation-duration: $ani-one-line2-show-dur;
+		animation-fill-mode: forwards;
+
+		visibility: hidden;
+	}
+
+	#line1 .mask {
+		animation-delay: $ani-two-hide-delay;
+		animation-name: lineOneMask;
+		animation-duration: $ani-two-hide-dur;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease-out;
+
+		top: 103px;
+	}
+
+	#line1 .text2 {
+		animation-delay: $ani-two-swap-delay;
+		animation-name: showElm;
+		animation-duration: $ani-two-swap-dur;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease-out;
+
+		visibility: hidden;
+	}
+	#line1 .text1 .inner {
+		animation-delay: $ani-two-swap-delay;
+		animation-name: hideElm;
+		animation-duration: $ani-two-swap-dur;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease-out;
+
+		visibility: visible;
+	}
+
+}
+
+@keyframes lineOneTop {
+    0%   { top: 103px; }
+    100% { top: 0; }
+}
+@keyframes lineOneTopOuter {
+    0%   { top: 46px; }
+    100% { top: 0; }
+}
+
+@keyframes showElm {
+    0%   { visibility: hidden; }
+    100% { visibility: visible; }
+}
+@keyframes hideElm {
+    0%   { visibility: visible; }
+    100% { visibility: hidden; }
+}
+
+@keyframes lineOneMask {
+    0%   { top: 103px; }
+    45%  { top: 0; }
+    55%  { top: 0; }
+    100% { top: -103px; }
+}

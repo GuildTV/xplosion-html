@@ -1,0 +1,100 @@
+
+@import "../variables";
+@import "../casparcg";
+@import "ani";
+
+@font-face {
+  font-family: "HelveticaBold";
+  src: url("/font/Helvetica-Bold.otf");
+}
+
+body {
+  // background: url("/img/lt-demo1.png");
+  background-repeat: no-repeat;
+  font-family: "HelveticaBold";
+
+}
+
+#outline {
+  position: absolute;
+  top: 825px;
+  left: 192px;
+  width: 1536px;
+  height: 150px;
+
+  // background: green;
+  overflow: hidden;
+}
+
+#line1 {
+  top: 0;
+  height: 103px;
+  overflow: hidden;
+
+  .bg {
+    background: #263f71;
+  }
+
+  .mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    background: $text-light;
+  }
+
+  .text {
+    top: 0;
+    font-size: 100px;
+    line-height: 1;
+
+    margin-top: -10px;
+    margin-left: -5px;
+  }
+}
+
+#line2 {
+  top: 104px;
+  height: 46px;
+
+  .bg {
+    top: 0;
+    background: #272727;
+  }
+
+  .text {
+    top: 0;
+    font-size: 30px;
+    line-height: 1;
+
+    margin-top: 6px;
+
+    .right {
+      float: right;
+      margin-right: 4px;
+    }
+  }
+}
+
+#line1, #line2 {
+  position: absolute;
+  left: 0;
+  width: 100%;
+
+  .bg {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .text {
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    color: $text-light;
+  }  
+}

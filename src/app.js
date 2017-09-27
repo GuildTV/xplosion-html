@@ -8,3 +8,7 @@ window.setupRenderer = function() {
 window.setupControl = function() {
   require("./control");
 };
+
+window.setupLT = function() {
+  require("./lt");
+};

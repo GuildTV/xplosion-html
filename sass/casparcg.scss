@@ -13,12 +13,3 @@ html, body {
   overflow:hidden;                                         /* Hide any overflowing elements - to disable scollbars */
   -webkit-font-smoothing:antialiased !important;           /* Set aliasing of fonts - possible options: none, antialiased,  subpixel-antialiased */
 }
-
-body {
-  font-family: "TradeGothic";
-}
-
-@font-face {
-  font-family: "TradeGothic";
-  src: url("/font/TradeGothicLTStd-Bd2.otf");
-}

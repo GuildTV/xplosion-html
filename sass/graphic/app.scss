@@ -1,12 +1,21 @@
 
 @import "../variables";
-@import "casparcg";
+@import "../casparcg";
 
 @import "possession";
 @import "timeout";
 @import "flag";
 @import "touchdown";
 @import "bar-text";
+
+body {
+  font-family: "TradeGothic";
+}
+
+@font-face {
+  font-family: "TradeGothic";
+  src: url("/font/TradeGothicLTStd-Bd2.otf");
+}
 
 body {
   transition: opacity 0.25s;
