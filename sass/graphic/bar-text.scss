@@ -80,7 +80,7 @@ body.in #bar-outline {
     }
   }
 
-  #box-left {
+  #box-left, #box-left-next {
     left: 0;
     width: 232px;
     background: linear-gradient(#354863, #0f1a29);
@@ -90,21 +90,18 @@ body.in #bar-outline {
     justify-content: space-around;
 
     transition-delay: 0.3s;
+    text-align: left;
+  }
+  #box-left-next {
+    top: 54px;
 
-    #quarter, #clock {
-      display: inline-block;
+    transition: top 0s;
 
-      // margin-top: 5px;
+    &.in {
+      top: 0;
+      transition: top 0.28s;
+      transition-timing-function: linear;
     }
-
-    #quarter {
-      text-align: left;
-      // margin-left: -10px;
-    }
-    // #clock {
-    //   text-align: right;
-    //   margin-right: -10px;
-    // }
   }
 
   #box-right {
@@ -128,7 +125,7 @@ body.in #bar-outline {
       height: 100%;
     }
 
-    #score-left, #score-right {    
+    #score-left, #score-right, #score-left-next, #score-right-next {
       display: inline-flex;
       align-items: center;
     }
@@ -140,14 +137,32 @@ body.in #bar-outline {
 
     transition-delay: 0.2s;
 
-    color: $team-l-color-text;
-    background: linear-gradient($team-l-color-bg1, $team-l-color-bg2); 
+    &> div {
+      color: $team-l-color-text;
+      background: linear-gradient($team-l-color-bg1, $team-l-color-bg2); 
+    }
 
-    #score-left {
+    #score-left, #score-left-next {
       left: 166px;
       width: 62px;
+    }
 
+    #score-left {
       z-index: 106;
+    }
+    #score-left-next {
+      z-index: 107;
+      top: 54px;
+
+      .current {
+        color: green;
+      }
+
+      &.in {
+        top: 0;
+        transition: top 0.28s;
+        transition-timing-function: linear;
+      }
     }
 
     #team-l {
@@ -161,18 +176,32 @@ body.in #bar-outline {
 
     transition-delay: 0.1s;
 
-    color: $team-r-color-text;
-    background: linear-gradient($team-r-color-bg1, $team-r-color-bg2);
+    &> div {
+      color: $team-r-color-text;
+      background: linear-gradient($team-r-color-bg1, $team-r-color-bg2);
+    }
 
-    #score-right {
+    #score-right, #score-right-next {
       left: 0;
       width: 62px;
+    }
 
+    #score-right {
       z-index: 111;
+    }
+    #score-right-next {
+      z-index: 112;
+      top: 54px;
+
+      &.in {
+        top: 0;
+        transition: top 0.28s;
+        transition-timing-function: linear;
+      }
     }
 
     #team-r {
-      left: 66px;
+      left: 62px;
     }
   }
 

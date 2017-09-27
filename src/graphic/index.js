@@ -23,11 +23,10 @@ window.setOut = function(){
 function renderState(state){
 
   document.querySelector('#box-right .content').innerText = getDownsAndGains(state);
-  document.querySelector('#box-left #quarter').innerText = getQuarterText(state);
-  // document.querySelector('#box-left #clock').innerText = "99:99";
+  updateWithAnimation(() => getQuarterText(state), "box-left");
 
-  document.querySelector('#score-left .content').innerText = pad(state.scoreL, 2);
-  document.querySelector('#score-right .content').innerText = pad(state.scoreR, 2);
+  updateWithAnimation(() => pad(state.scoreL, 2), "score-left");
+  updateWithAnimation(() => pad(state.scoreR, 2), "score-right");
 
   document.body.classList.remove("possession-left", "possession-right");
   switch(state.possession){
@@ -77,6 +76,26 @@ function renderState(state){
     if (state.triggers.flag)
       doFlag(state);
   }
+}
+
+function updateWithAnimation(nextValSelector, name){
+  const currentVal = document.querySelector('#'+name+' .content').innerText;
+
+  if (currentVal == nextValSelector())
+    return;
+
+  if (document.querySelector('#'+name+'-next.in'))
+    return setTimeout(() => updateWithAnimation(nextValSelector, name), 10);
+
+  document.querySelector('#'+name+'-next .content').innerText = nextValSelector();
+  document.querySelector('#'+name+'-next').classList.add("in");
+
+  setTimeout(() => {
+    document.querySelector('#'+name+' .content').innerText = document.querySelector('#'+name+'-next .content').innerText;
+    document.querySelector('#'+name+'-next .content').innerText = "";
+    document.querySelector('#'+name+'-next').classList.remove("in");
+
+  }, 290); // Slightly more than the in animation
 }
 
 let flagTimer = null;
