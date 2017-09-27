@@ -90,10 +90,18 @@ body.in #bar-outline {
     justify-content: space-around;
 
     transition-delay: 0.3s;
-    text-align: left;
+    text-align: center;
   }
   #box-left-next {
+    position: absolute;
+    height: 100%;
+    width: 100%;
     top: 54px;
+    left: 0;
+    z-index: 101;
+    
+    display: inline-flex;
+    align-items: center;
 
     transition: top 0s;
 
