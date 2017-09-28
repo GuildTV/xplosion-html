@@ -3,24 +3,39 @@
 <head>
   <title>xpLosION HTML Graphics</title>
   <style>
-    body {
-      /*opacity: 0;*/
+    body #outline {
+      opacity: 0;
+    }
+    body #controls {
+      display: none;
     }
   </style>
 </head>
-<body class="in">
+<body>
 
   <div id="outline">
     <div id="line2">
       <div class="bg"></div>
-      <div class="text">University of Birmingham, Bournbrook Pitches <span class="right">Half-Time</span></div>
+      <div class="text"><span class="left"></span> <span class="right"></span></div>
     </div>
     <div id="line1">
       <div class="bg"></div>
-      <div class="text text1"><span class="inner">BUCS Premier South</span></div>
-      <div class="text text2">Birmingham 99 - 99 Portsmouth</div>
+      <div class="text text1"><span class="inner"></span></div>
+      <div class="text text2"></div>
       <div class="mask"></div>
     </div>
+  </div>
+
+  <div id="controls">
+    <p>
+      <button onclick="window.showLT();">Show</button>
+      <button onclick="window.update();">Update</button>
+      <button onclick="window.hideLT();">Hide</button>
+    </p>
+    <p>Line1: <input id="dev-l1a" type="text" value="BUCS Premier South"/></p>
+    <p>Line1 (phase 2): <input id="dev-l1b" type="text" value="Birmingham 99 - 99 Portsmouth"/> (Not shown if blank)</p>
+    <p>Line2 Left: <input id="dev-l2l" type="text" value="University of Birmingham, Bournbrook Pitches"/></p>
+    <p>Line2 Right: <input id="dev-l2r" type="text" value="Half-Time"/> (Not shown if blank)</p>
   </div>
 
   <script src="/dist/bundle.js"></script>

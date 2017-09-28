@@ -13,7 +13,16 @@ $ani-two-hide-dur: 0.8s;
 $ani-two-swap-delay: $ani-two-hide-delay + 0.4s;
 $ani-two-swap-dur: 0s;
 
+body.out #outline {
+	opacity: 0 !important;
+	transition: opacity 0.5s !important;
+}
+
 body.in {
+	#outline {
+		opacity: 1;
+		transition: opacity 0s;
+	}
 
 	#line1 .text1 {
 		animation-delay: $ani-one-text-delay;
@@ -55,32 +64,38 @@ body.in {
 	}
 
 	#line1 .mask {
-		animation-delay: $ani-two-hide-delay;
-		animation-name: lineOneMask;
-		animation-duration: $ani-two-hide-dur;
-		animation-fill-mode: forwards;
-		animation-timing-function: ease-out;
-
 		top: 103px;
 	}
-
 	#line1 .text2 {
-		animation-delay: $ani-two-swap-delay;
-		animation-name: showElm;
-		animation-duration: $ani-two-swap-dur;
-		animation-fill-mode: forwards;
-		animation-timing-function: ease-out;
-
 		visibility: hidden;
 	}
-	#line1 .text1 .inner {
-		animation-delay: $ani-two-swap-delay;
-		animation-name: hideElm;
-		animation-duration: $ani-two-swap-dur;
-		animation-fill-mode: forwards;
-		animation-timing-function: ease-out;
 
-		visibility: visible;
+	&.phase2{
+
+		#line1 .mask {
+			animation-delay: $ani-two-hide-delay;
+			animation-name: lineOneMask;
+			animation-duration: $ani-two-hide-dur;
+			animation-fill-mode: forwards;
+			animation-timing-function: ease-out;
+		}
+
+		#line1 .text2 {
+			animation-delay: $ani-two-swap-delay;
+			animation-name: showElm;
+			animation-duration: $ani-two-swap-dur;
+			animation-fill-mode: forwards;
+			animation-timing-function: ease-out;
+		}
+		#line1 .text1 .inner {
+			animation-delay: $ani-two-swap-delay;
+			animation-name: hideElm;
+			animation-duration: $ani-two-swap-dur;
+			animation-fill-mode: forwards;
+			animation-timing-function: ease-out;
+
+			visibility: visible;
+		}
 	}
 
 }
