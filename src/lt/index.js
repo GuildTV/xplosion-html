@@ -29,6 +29,5 @@ if (window.location.hash.indexOf("dev") != -1){
 			document.body.classList.add("phase2");
 	}
 
-
 	update();
 }

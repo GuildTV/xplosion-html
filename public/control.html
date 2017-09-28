@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xpLosION Graphics Controller</title>
+  </head>
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <span class="navbar-brand">xpLosION Controller</span>
+      </div>
+      <form class="navbar-form navbar-left" role="search">
+        <button class="btn btn-inout">Show</button>
+
+        <span class="spacer"></span>
+        
+        <div class="form-group">
+          <label>Quarter:</label>
+          <select class="form-control" id="quarter-select">
+            <option value="0">Off</option>
+            <option value="1">Q1</option>
+            <option value="2">Q2</option>
+            <option value="3">Q3</option>
+            <option value="4">Q4</option>
+          </select>
+        </div>
+
+        <span class="spacer"></span>
+
+        <button class="btn btn-flag">Flag</button>
+
+      </form>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" class="sync">Fetch</a></li>
+          <li><a href="#" class="commit">Commit</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="bar-scaler">
+        <iframe id="bar-preview" src="/graphic.html"></iframe>
+      </div>
+
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-xs-6 center">
+        <h3><span id="teamLName"></span> <span id="scoreLCurrent" class="textCurrent"></span><span id="scoreLNext" class="textNext"></span></h3>
+      </div>
+      <div class="col-xs-6 center">
+        <h3><span id="teamRName"></span> <span id="scoreRCurrent" class="textCurrent"></span><span id="scoreRNext" class="textNext"></span></h3>
+      </div>
+      <div class="col-xs-6 center">
+        <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="1">+1</button>
+        <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="2">+2</button>
+        <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="3">+3</button>
+        <button class="btn btn-lg btn-score btn-touchdown" data-key="scoreL" data-delta="8" data-touchdown="1">TD</button>
+        <br />
+        <button class="btn btn-lg btn-score" data-key="scoreL" data-clear="true" data-touchdown="1">Revert</button>
+        <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="-1">-1</button>
+      </div>
+      <div class="col-xs-6 center">
+        <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="1">+1</button>
+        <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="2">+2</button>
+        <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="3">+3</button>
+        <button class="btn btn-lg btn-score btn-touchdown" data-key="scoreR" data-delta="8" data-touchdown="2">TD</button>
+        <br />
+        <button class="btn btn-lg btn-score" data-key="scoreR" data-clear="true" data-touchdown="2">Revert</button>
+        <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="-1">-1</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 center">
+        <h4>Timeouts</h4>
+      </div>
+      <div class="col-xs-6 center">
+        <h4>Timeouts</h4>
+      </div>
+      <div class="col-xs-6 center">
+        <button class="btn btn-lg btn-timeouts" data-key="timeoutsL" data-value="3">0</button>
+        <button class="btn btn-lg btn-timeouts" data-key="timeoutsL" data-value="2">1</button>
+        <button class="btn btn-lg btn-timeouts" data-key="timeoutsL" data-value="1">2</button>
+        <button class="btn btn-lg btn-timeouts" data-key="timeoutsL" data-value="0">3</button>
+      </div>
+      <div class="col-xs-6 center">
+        <button class="btn btn-lg btn-timeouts" data-key="timeoutsR" data-value="3">0</button>
+        <button class="btn btn-lg btn-timeouts" data-key="timeoutsR" data-value="2">1</button>
+        <button class="btn btn-lg btn-timeouts" data-key="timeoutsR" data-value="1">2</button>
+        <button class="btn btn-lg btn-timeouts" data-key="timeoutsR" data-value="0">3</button> 
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-md-12 center">
+        <h3>Possession</h3>
+      </div>
+      <div class="col-md-12 center">
+        <button class="btn btn-lg btn-possession" data-key="possession" data-value="1">Team 1</button>
+        <button class="btn btn-lg btn-possession" data-key="possession" data-value="0">Off</button>
+        <button class="btn btn-lg btn-possession" data-key="possession" data-value="2">Team 2</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 center">
+        <h3>Downs</h3>
+      </div>
+      <div class="col-xs-6 center">
+        <h3>Gains <span id="gainsCurrent" class="textCurrent"></span><span id="gainsNext" class="textNext"></span></h3>
+      </div>
+      <div class="col-xs-6 center">
+        <button class="btn btn-lg btn-downs" data-key="downs" data-value="0">Off</button>
+        <button class="btn btn-lg btn-downs" data-key="downs" data-value="1">1st</button>
+        <button class="btn btn-lg btn-downs" data-key="downs" data-value="2">2nd</button>
+        <button class="btn btn-lg btn-downs" data-key="downs" data-value="3">3rd</button>
+        <button class="btn btn-lg btn-downs" data-key="downs" data-value="4">4th</button>
+      </div>
+      <div class="col-xs-6 center">
+        <input type="range" id="gains-slider" value="10" step="5" min="-100" max="100" />
+        <br />
+        <button class="btn btn-lg btn-gains" data-key="gains" data-clear="true">Revert</button>
+        <button class="btn btn-lg btn-gains" data-key="gains" data-value="">Off</button>
+        <button class="btn btn-lg btn-gains" data-key="gains" data-value="Goal">Goal</button>
+      </div>
+    </div>
+
+  </div><!-- /.container -->
+
+  <script src="/dist/bundle.js"></script>
+  <script type="text/javascript">
+    window.setupControl();
+  </script>
+</body>
+</html>
