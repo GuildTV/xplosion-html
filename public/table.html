@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>xpLosION HTML Graphics</title>
+  <style>
+    /*body #outline {
+      opacity: 0;
+    }*/
+    /*body #controls {
+      display: none;
+    }*/
+  </style>
+</head>
+<body>
+
+  <div id="outline">
+    <div id="wrapper">
+      <div id="line1">
+        <div class="bg"></div>
+        <div class="text text1"><span class="inner">Heading 1</span></div>
+        <div class="mask"></div>
+      </div>
+      <div id="line2">
+        <div class="bg"></div>
+        <div class="text">
+          <span class="left">Subtitle</span>
+          <div class="leader show">
+            <span class="w">W</span>
+            <span class="l">L</span>
+            <span class="pts">Pts</span>
+          </div>
+        </div>
+      </div>
+      <div id="rows">
+        <div class="row row1v1">
+          <div class="inner">
+            <div class="team1">Swansea</div>
+            <div class="score">25 - 15</div>
+            <div class="team2">Birmingham</div>
+          </div>
+        </div>
+        <div class="row rowleader">
+          <div class="inner">
+            <div class="team">Bath</div>
+            <div class="wins">0</div>
+            <div class="losses">0</div>
+            <div class="points">0</div>
+          </div>
+        </div>
+        <div class="row rowleader">
+          <div class="inner">
+            <div class="team">Birmingham</div>
+            <div class="wins">0</div>
+            <div class="losses">1</div>
+            <div class="points">0</div>
+          </div>
+        </div>
+        <div class="row rowleader">
+          <div class="inner">
+            <div class="team">Hertfordshire</div>
+            <div class="wins">0</div>
+            <div class="losses">0</div>
+            <div class="points">0</div>
+          </div>
+        </div>
+        <div class="row rowleader">
+          <div class="inner">
+            <div class="team">Portsmouth</div>
+            <div class="wins">0</div>
+            <div class="losses">0</div>
+            <div class="points">0</div>
+          </div>
+        </div>
+        <div class="row rowleader">
+          <div class="inner">
+            <div class="team">Swansea</div>
+            <div class="wins">1</div>
+            <div class="losses">0</div>
+            <div class="points">5</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="controls">
+    <p>
+      <button onclick="window.showTable();">Show</button>
+      <button onclick="window.next();">Next</button>
+      <button onclick="window.hideTable();">Hide</button>
+    </p>
+  </div>
+
+  <script src="/dist/bundle.js"></script>
+  <script type="text/javascript">
+    window.setupTable();
+  </script>
+</body>
+</html>

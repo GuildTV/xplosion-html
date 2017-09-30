@@ -13,3 +13,8 @@ html, body {
   overflow:hidden;                                         /* Hide any overflowing elements - to disable scollbars */
   -webkit-font-smoothing:antialiased !important;           /* Set aliasing of fonts - possible options: none, antialiased,  subpixel-antialiased */
 }
+
+@font-face {
+  font-family: "HelveticaBold";
+  src: url("/font/Helvetica-Bold.otf");
+}

@@ -1,0 +1,79 @@
+
+#line1 {
+  top: 0;
+  height: 103px;
+  overflow: hidden;
+
+  .bg {
+    background: #263f71;
+    top: 103px;
+  }
+
+  .mask {
+    position: absolute;
+    left: 0;
+    top: 103px;
+    width: 100%;
+    height: 100%;
+
+    background: $text-light;
+  }
+
+  .text {
+    top: 103px;
+    font-size: 100px;
+    line-height: 1;
+
+    margin-top: -10px;
+    margin-left: -5px;
+  }
+}
+
+#line2 {
+  margin-top: 1px;
+  // top: 104px;
+  top: 0;
+  overflow: hidden;
+
+  // height: 46px;
+  height: 0;
+
+  .bg {
+    bottom: 7px;
+    background: #272727;
+  }
+
+  .text {
+    bottom: 15px;
+    font-size: 30px;
+    line-height: 1;
+
+    margin-top: 6px;
+
+    .right {
+      float: right;
+      margin-right: 4px;
+    }
+  }
+}
+
+#line1, #line2 {
+  position: relative;
+  left: 0;
+  width: 100%;
+
+  .bg {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .text {
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    color: $text-light;
+  }  
+}

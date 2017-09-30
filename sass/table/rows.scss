@@ -1,0 +1,125 @@
+$rowGap: 7px;
+$rowBodyHeight: 54px;
+$rowHeight: $rowBodyHeight + $rowGap;
+$ani-row-show-dur: 0.14s;
+
+.row {
+  // height: $rowHeight;
+  height: 0;
+  position: relative;
+  overflow: hidden;
+
+  font-size: 32px;
+  color: $text-dark;
+
+  transition: height $ani-row-show-dur;
+  transition-timing-function: ease-out;
+  &.show {
+    height: $rowHeight;
+  }
+
+  .inner {
+    position: relative;
+    height: $rowBodyHeight;
+
+    background: #ffffff;
+  }
+}
+
+.row1v1 {
+  .team1, .team2, .score {
+    height: $rowBodyHeight;
+    position: absolute;
+    top: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .team1, .team2 {
+    width: 672px;
+  }
+
+  .team1 {
+    left: 0;
+  }
+
+  .team2 {
+    left: 864px;
+  }
+
+  .score {
+    width: 192px;
+    left: 672px;
+
+    box-shadow: 7px 0 15px -3px #aaa, -7px 0 15px -4px #aaa;
+  }
+}
+
+
+.rowleader {
+  .team, .wins, .losses, .points {
+    height: $rowBodyHeight;
+    position: absolute;
+    top: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .team {
+    width: 1074px;
+    left: 0;
+  }
+
+  .wins, .losses, .points {
+    width: 126px;
+    box-shadow: 2px 0 15px -3px #aaa, -7px 0 15px -4px #aaa;
+  }
+
+  .wins {
+    left: 1074px;
+  }
+
+  .losses {
+    left: 1242px;
+  }
+
+  .points {
+    left: 1410px;
+  }
+}
+
+#line2 .leader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  .w, .l, .pts{
+    position: absolute;
+    top: 0;
+    width: 126px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .w {
+    left: 1074px;    
+  }
+  .l {
+    left: 1242px;    
+  }
+  .pts {
+    left: 1410px;    
+  }
+}

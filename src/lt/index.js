@@ -1,5 +1,7 @@
 require("../../sass/lt/app.scss");
 
+import { applyBlur } from '../blur';
+
 if (window.location.hash.indexOf("dev") != -1){
 	console.log("DEV MODE");
 
@@ -30,4 +32,6 @@ if (window.location.hash.indexOf("dev") != -1){
 	}
 
 	update();
+
+	applyBlur(document.querySelector('#line1 .text1'))
 }

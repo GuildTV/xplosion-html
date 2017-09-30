@@ -1,23 +1,33 @@
-
 @import "../variables";
 @import "../casparcg";
-@import "ani";
-@import "dev";
 @import "../headings";
-
+@import "rows";
+@import "ani";
 
 body {
   background-repeat: no-repeat;
   font-family: "HelveticaBold";
 
+  background: #00ff00;
 }
 
 #outline {
   position: absolute;
-  top: 825px;
+  top: 0;
   left: 192px;
   width: 1536px;
-  height: 150px;
+  height: 100vh;
 
   overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  #wrapper {
+  width: 100%;
+  }
+
+  #line2 {
+  margin-top: 7px;
+  }
 }

@@ -15,3 +15,7 @@ window.setupControl = function() {
 window.setupLT = function() {
   require("./lt");
 };
+
+window.setupTable = function() {
+  require("./table");
+};
