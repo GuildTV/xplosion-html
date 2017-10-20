@@ -2,6 +2,18 @@ require("../../sass/control/app.scss");
 
 console.log("Loading controller");
 
+if (window.location.hash.indexOf("simple") >= 0){
+  document.title = "Simple controller";
+  document.querySelector(".navbar-brand").innerText = "Simple Controller";
+
+  document.querySelector("#timeouts-wrapper").style.display = "none";
+  document.querySelector("#downs-wrapper").style.display = "none";
+  document.querySelectorAll(".quarter-control").forEach(e => e.style.display = "none");
+  document.querySelectorAll(".btn-touchdown").forEach(e => e.style.display = "none");
+  document.querySelectorAll(".btn-flag").forEach(e => e.style.display = "none");
+  document.querySelector("#bar-preview").src = "/simple.html";
+}
+
 window.CurrentState = {};
 window.NextState = {};
 
@@ -10,7 +22,10 @@ const init = { method: 'GET',
                headers: { 'Accept': 'application/json' },
                cache: 'default' }
 
-function sync(){
+function sync(e){
+  if (e !== undefined)
+    e.preventDefault();
+
   fetch('/api/main', init).then(r => r.json()).then(j => {
     window.CurrentState = j;
     renderState();
@@ -18,9 +33,6 @@ function sync(){
 }
 sync();
 document.querySelector('.sync').onclick = sync;
-
-document.querySelector('#teamLName').innerText = window.teams.leftName;
-document.querySelector('#teamRName').innerText = window.teams.rightName;
 
 function classRemoveAll(elms, cl){
   if (elms === null || elms === undefined)
@@ -33,6 +45,11 @@ function renderState(){
   console.log("Updating state");
   const state = window.CurrentState;
   const next = window.NextState;
+
+  document.querySelector('#teamLName').innerText = state.nameL;
+  document.querySelector('#teamRName').innerText = state.nameR;
+  document.querySelector('.btn-possession-l').innerText = state.nameL;
+  document.querySelector('.btn-possession-r').innerText = state.nameR;
 
   renderQuarter(state, next);
   renderFlag(state, next);
@@ -140,6 +157,7 @@ document.querySelectorAll('.btn-flag').forEach(e => {
     return false;
   };
 });
+
 document.querySelectorAll('.btn-inout').forEach(e => {
   e.onclick = () => {
     window.NextState.in = (window.NextState.in === undefined) ? !window.CurrentState.in : undefined;
@@ -205,7 +223,9 @@ document.querySelectorAll('.btn-score').forEach(elm=> {
   };
 });
 
-document.querySelector('.commit').onclick = () => {
+document.querySelector('.commit').onclick = (e) => {
+  e.preventDefault();
+
   const changes = [];
   Object.keys(window.NextState).forEach(k => {
     const v = window.NextState[k];

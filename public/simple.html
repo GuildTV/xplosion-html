@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Squash HTML Graphics</title>
+  <style>
+    body {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body class="in">
+
+  <div id="content-mask">
+    <div id="content">
+      <div id="bar-outline">
+
+        <div id="box-left">
+          <span class="content"></span>
+          <div id="box-left-next">
+            <span class="content"></span>
+          </div>
+        </div>
+
+        <div id="team-l-outer">
+          <div id="possession-left" class="possession"></div>
+
+          <div id="score-left">
+            <div class="feather f-wide"></div>
+            <span class="content"></span>
+          </div>
+          <div id="score-left-next">
+            <span class="content"></span>
+          </div>
+
+          <div id="team-l">
+            <div class="feather"></div>
+            <!-- <img src="/img/logo-l.png" /> -->
+
+            <span class="text"></span>
+          </div>
+        </div>
+
+        <div id="team-r-outer">
+          <div id="possession-right" class="possession"></div>
+
+          <div id="score-right">
+            <div class="feather"></div>
+            <div class="feather f-wide-right"></div>
+            <span class="content"></span>
+          </div>
+          <div id="score-right-next">
+            <span class="content"></span>
+          </div>
+
+          <div id="team-r">
+            <!-- <img src="/img/logo-r.png" /> -->
+
+            <span class="text"></span>
+          </div>
+        </div>
+
+        <div id="box-right">
+          <div class="feather"></div>
+          <span class="content"></span>
+
+          <div id="flag">
+            <span class="text">FLAG</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/dist/bundle.js"></script>
+  <script type="text/javascript">
+    window.setupRenderer();
+  </script>
+</body>
+</html>

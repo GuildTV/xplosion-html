@@ -29,6 +29,8 @@ namespace xplosion.Controllers
             Downs, Gains,
 
             Flag, Touchdown,
+
+            NameL, NameR,
         }
 
         public UpdateKey Key { get; set; }
@@ -119,6 +121,13 @@ namespace xplosion.Controllers
 
                         case StateUpdateEntry.UpdateKey.Touchdown:
                             triggers.Add("touchdown", entry.Value);
+                            break;
+
+                        case StateUpdateEntry.UpdateKey.NameL:
+                            state.NameL = entry.Value;
+                            break;
+                        case StateUpdateEntry.UpdateKey.NameR:
+                            state.NameR = entry.Value;
                             break;
 
                         default:

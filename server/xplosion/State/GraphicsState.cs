@@ -52,6 +52,11 @@ namespace xplosion.State
         public uint Downs { get; set; }
         [JsonProperty("gains")]
         public string Gains { get; set; } = "";
+
+        [JsonProperty("nameL")]
+        public string NameL { get; set; } = "Team L";
+        [JsonProperty("nameR")]
+        public string NameR { get; set; } = "Team R";
     }
 
     public class GraphicsStateWithTriggers : GraphicsState
@@ -67,6 +72,9 @@ namespace xplosion.State
             Possession = state.Possession;
             Downs = state.Downs;
             Gains = state.Gains;
+
+            NameL = state.NameL;
+            NameR = state.NameR;
 
             Triggers = triggers;
         }
