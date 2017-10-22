@@ -1,0 +1,98 @@
+
+#bar-outline {
+  font-size: 36px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.05;
+    
+  position: absolute;
+  top: 53px;
+  left: 677px;
+
+  width: 566px;
+  height: 54px;
+
+  overflow: hidden;
+  color: $text-dark;
+
+  &> div {
+    position: absolute;
+    top: 0;
+
+    height: 100%;
+
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+
+    transition: top 0.28s;
+    transition-timing-function: linear;
+
+    span {
+      margin: auto;
+      // margin-top: 14px;
+      text-align: center;
+    }
+  }
+
+  #name-left {
+    left: 0;
+    width: 142px;
+
+    z-index: 100;
+    font-size: 36px;
+    justify-content: space-around;
+
+  }
+
+  #name-right {
+    left: 424px;
+    width: 142px;
+
+    z-index: 120;
+    font-size: 36px;
+
+    transition-delay: 0s;
+  }
+
+  #sets-left {
+    left: 142px;
+    width: 80px;
+
+    z-index: 100;
+    font-size: 36px;
+    justify-content: space-around;
+  }
+
+  #sets-right {
+    left: 342px;
+    width: 80px;
+
+    z-index: 100;
+    font-size: 36px;
+    justify-content: space-around;
+  }
+
+  #score {
+    left: 222px;
+    width: 120px;
+
+    z-index: 100;
+    font-size: 36px;
+    justify-content: space-around;
+
+    span {
+      margin: 0;
+    }
+    .score-left {
+      margin-left: auto;
+    }
+    .score-right {
+      margin-right: auto;
+    }
+    .dash {
+      margin: 0 3px;
+    }
+  }
+
+}

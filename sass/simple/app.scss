@@ -1,0 +1,44 @@
+
+@import "../variables";
+@import "../casparcg";
+
+@import "bar-text";
+
+body {
+  font-family: "Helvetica";
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("/font/Helvetica-Bold.otf");
+}
+
+body {
+  transition: opacity 0.5s;
+  
+  // background: #00ff00;
+}
+
+body.in {
+  opacity: 1;
+}
+
+#content-mask {
+  background-image: url("/img/simple-bg.png");
+  background-position: -456px -870px;
+  
+  // width: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+
+  #content {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+  }
+
+}

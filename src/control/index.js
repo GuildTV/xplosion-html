@@ -6,6 +6,8 @@ if (window.location.hash.indexOf("simple") >= 0){
   document.title = "Simple controller";
   document.querySelector(".navbar-brand").innerText = "Simple Controller";
 
+  document.querySelector("#sets-wrapper").style.display = "block";
+  document.querySelector("#name-wrapper").style.display = "block";
   document.querySelector("#timeouts-wrapper").style.display = "none";
   document.querySelector("#downs-wrapper").style.display = "none";
   document.querySelectorAll(".quarter-control").forEach(e => e.style.display = "none");
@@ -57,9 +59,11 @@ function renderState(){
   renderButtonGroup(state, next, "timeoutsL");
   renderButtonGroup(state, next, "timeoutsR");
   renderScore(state, next);
+  renderSets(state, next);
   renderButtonGroup(state, next, "downs");
   renderGains(state, next);
   renderInOut(state, next);
+  renderName(state, next);
 }
 
 function renderQuarter(state, next){
@@ -102,6 +106,14 @@ function renderInOut(state, next){
     elm.classList.add('off');
 }
 
+function renderName(state, next){
+  document.querySelector('#nameLCurrent').innerText = state.nameL;
+  document.querySelector('#nameRCurrent').innerText = state.nameR;
+
+  document.querySelector('#nameLNext').innerText = next.nameL === undefined ? "" : next.nameL;
+  document.querySelector('#nameRNext').innerText = next.nameR === undefined ? "" : next.nameR;
+}
+
 function renderButtonGroup(state, next, key){
   classRemoveAll(document.querySelectorAll('.btn[data-key="'+key+'"]'), ['current', 'pending']);
   const elm = document.querySelector('.btn[data-key="'+key+'"][data-value="'+state[key]+'"]')
@@ -130,6 +142,20 @@ function renderScore(state, next){
     document.querySelector('.btn-touchdown[data-touchdown="'+next.touchdown+'"]').classList.add("pending");
 }
 
+function renderSets(state, next){
+  const setsLNext = document.querySelector('#setsLNext');
+  const setsRNext = document.querySelector('#setsRNext');
+  const setsCurrent = document.querySelector('#setsLCurrent');
+  const setsRCurrent = document.querySelector('#setsRCurrent');
+
+  setsLNext.innerText = next.setsL === undefined ? "" : "("+next.setsL+")";
+  setsRNext.innerText = next.setsR === undefined ? "" : "("+next.setsR+")";
+  setsLCurrent.innerText = "("+state.setsL+")";
+  setsRCurrent.innerText = "("+state.setsR+")";
+
+  classRemoveAll(document.querySelectorAll('.btn-sets'), ['pending']);
+}
+
 function renderGains(state, next){
   const gainsCurrent = document.querySelector('#gainsCurrent');
   const gainsNext = document.querySelector('#gainsNext');
@@ -152,6 +178,18 @@ document.querySelector('#gains-slider').oninput = () => {
 document.querySelectorAll('.btn-flag').forEach(e => {
   e.onclick = () => {
     window.NextState.flag = (window.NextState.flag === undefined) ? !window.CurrentState.flag : undefined;
+
+    renderState();
+    return false;
+  };
+});
+
+document.querySelectorAll('.btn-editor').forEach(e => {
+  const key = e.getAttribute('data-key');
+
+  e.onclick = () => {
+    const newVal = window.prompt(key, (window.NextState[key] === undefined) ? window.CurrentState[key] : window.NextState[key]);
+    window.NextState[key] = newVal;
 
     renderState();
     return false;
@@ -194,6 +232,7 @@ document.querySelectorAll('.btn-possession').forEach(e => e.onclick = buttonGrou
 document.querySelectorAll('.btn-downs').forEach(e => e.onclick = buttonGroupHandler);
 document.querySelectorAll('.btn-timeouts').forEach(e => e.onclick = buttonGroupHandler);
 document.querySelectorAll('.btn-quarter').forEach(e => e.onclick = buttonGroupHandler);
+document.querySelectorAll('.btn-sets').forEach(e => e.onclick = buttonGroupHandler);
 document.querySelector('#quarter-select').onchange = (e) => {
   const newElm = document.querySelector('#quarter-select option:checked');
   const newVal = newElm.getAttribute('value');
@@ -236,7 +275,7 @@ document.querySelector('.commit').onclick = (e) => {
       key: k,
       value: v
     });
-  })
+  });
 
   console.log("Sending changes:", changes)
 

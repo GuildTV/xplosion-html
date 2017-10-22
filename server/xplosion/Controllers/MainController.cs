@@ -31,6 +31,8 @@ namespace xplosion.Controllers
             Flag, Touchdown,
 
             NameL, NameR,
+            
+            SetsL, SetsR,
         }
 
         public UpdateKey Key { get; set; }
@@ -128,6 +130,13 @@ namespace xplosion.Controllers
                             break;
                         case StateUpdateEntry.UpdateKey.NameR:
                             state.NameR = entry.Value;
+                            break;
+                            
+                        case StateUpdateEntry.UpdateKey.SetsL:
+                            HandleUint(entry, v => state.SetsL = v);
+                            break;
+                        case StateUpdateEntry.UpdateKey.SetsR:
+                            HandleUint(entry, v => state.SetsR = v);
                             break;
 
                         default:

@@ -57,6 +57,11 @@ namespace xplosion.State
         public string NameL { get; set; } = "Team L";
         [JsonProperty("nameR")]
         public string NameR { get; set; } = "Team R";
+
+        [JsonProperty("setsL")]
+        public uint SetsL { get; set; }
+        [JsonProperty("setsR")]
+        public uint SetsR { get; set; }
     }
 
     public class GraphicsStateWithTriggers : GraphicsState
@@ -75,6 +80,8 @@ namespace xplosion.State
 
             NameL = state.NameL;
             NameR = state.NameR;
+            SetsL = state.SetsL;
+            SetsR = state.SetsR;
 
             Triggers = triggers;
         }
