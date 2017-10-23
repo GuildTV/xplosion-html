@@ -42,3 +42,32 @@ body.in {
   }
 
 }
+
+
+#possession-left, #possession-right {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+
+  background-image: url("/img/squash-ball.png");
+  transform: scale(0.8);
+  transform-origin: top left;
+
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+#possession-left {
+  // background-position: -576px -870px;
+  background-position: -349px -850px;
+
+}
+#possession-right {
+  // background-position: -456px -870px;
+  background-position: -199px -850px;
+}
+
+body.possession-left #possession-left, body.possession-right #possession-right {
+  opacity: 1;
+}
