@@ -17,7 +17,7 @@ window.play = function() {
 	setTimeout(() => {
 		showTableAni();
 
-	}, 3000);
+	}, 2200);
 };
 window.stop = function() {
 	document.body.classList.add("out");
@@ -65,7 +65,7 @@ window.next = function() {
 				setTimeout(() => {
 					showTableAni();
 				}, 1000);
-			}, 400);
+			}, 300);
 		}, subtitleAniDuration + 300);
 
 	}, (rowAniDuration * rows.length))

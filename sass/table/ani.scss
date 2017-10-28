@@ -1,7 +1,7 @@
 $ani-one-text-delay: 1s;
-$ani-one-text-dur: 0.66s;
-$ani-one-bg-delay: $ani-one-text-delay + $ani-one-text-dur + 0.5s;
-$ani-one-bg-dur: 0.44s;
+$ani-one-text-dur: 0.3s;
+$ani-one-bg-delay: $ani-one-text-delay + $ani-one-text-dur + 0.3s;
+$ani-one-bg-dur: 0.3s;
 
 $ani-one-move-delay: 0.2s;
 $ani-one-move-dur: 0.14s;
@@ -9,7 +9,7 @@ $ani-one-line2-show-delay: $ani-one-move-delay;
 $ani-one-line2-show-dur: 0s;
 
 $ani-two-hide-delay: $ani-one-line2-show-delay + $ani-one-line2-show-dur + 2.1s;
-$ani-two-hide-dur: 0.8s;
+$ani-two-hide-dur: 0.6s;
 $ani-two-swap-delay: $ani-two-hide-delay + 0.4s;
 $ani-two-swap-dur: 0s;
 
