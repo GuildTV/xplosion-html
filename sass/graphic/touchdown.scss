@@ -1,85 +1,44 @@
 
 #touchdown {
-  -webkit-mask-image: url("/img/mask.png");
-  -webkit-mask-position-x: 920px;
-  -webkit-mask-repeat: no-repeat;
-
-  transition: -webkit-mask-position-x 0.5s;
-
   position: absolute;
-  top: 36px;
-  left: 490px;
-  width: 936px;
-  height: 94px;
-
-  // background: #fff;
-
-  .template {
-    position: absolute;
-    top: 10px;
-    left: 22px;
-
-    width: 900px;
-    height: 75px;
-    background-image: url("/img/template-touchdown.png");
-  }
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
 
   .bg {
     position: absolute;
-    top: 19px;
-    height: 53px;
-    left: 24px;
-    width: 886px;
-
-    border: 2px solid #282828;
-    border-radius: 5px;
-  }
-
-  img {
-    position: absolute;
-    left: 75px;
-    top: 23px;
+    top: 0;
+    height: 100%;
+    left: 0;
+    width: 100%;
   }
 
   .text {
     position: absolute;
-
-    top: 19px;
-    height: 53px;
-    // left: 100px;
-    // width: 816px;
-    left: 25px;
-    width: 890px;
+    top: 0;
+    height: 100%;
+    left: 0;
+    width: 100%;
 
     letter-spacing: 0.1em;
-    font-size: 57px;
+    font-size: 48px;
     text-align: center;
     vertical-align: middle;
-    line-height: 1;
-
-    filter: blur(5px);
-
-  }
-
-  video {
-    position: absolute;
-    top: 10px;
-    left: 22px;
-
-    display: none;
+    line-height: 1.15;
   }
 }
 
 // Animate contents
 body.touchdown-ani #touchdown .text {
-  transition: letter-spacing 10s linear, filter 2s linear;
+  transition: letter-spacing 10s linear;
   letter-spacing: 0.8em !important;
-  filter: blur(0px);
 }
 
 // Animate in/out
 body.touchdown-in #touchdown {
-  -webkit-mask-position-x: 0 !important;
+  top: 0;
 }
 
 body.touchdown-l #touchdown {
@@ -89,16 +48,6 @@ body.touchdown-l #touchdown {
   .bg {
     background: linear-gradient($team-l-color-bg1, $team-l-color-bg2);
   }
-
-  @if $team-l-color-text == $text-dark {
-    #touchdown-effect-dark {
-      display: block !important;
-    }
-  } @else {
-    #touchdown-effect-light {
-      display: block !important;
-    }
-  }
 }
 
 body.touchdown-r #touchdown {
@@ -107,15 +56,5 @@ body.touchdown-r #touchdown {
   }
   .bg {
     background: linear-gradient($team-r-color-bg1, $team-r-color-bg2);
-  }
-
-  @if $team-r-color-text == $text-light {
-    #touchdown-effect-light {
-      display: block !important;
-    }
-  } @else {
-    #touchdown-effect-dark {
-      display: block !important;
-    }
   }
 }
