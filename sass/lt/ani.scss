@@ -61,6 +61,8 @@ body.in {
 		animation-fill-mode: forwards;
 
 		visibility: hidden;
+		height: 46px;
+		z-index: -1;
 	}
 
 	#line1 .mask {
@@ -68,6 +70,7 @@ body.in {
 	}
 	#line1 .text2 {
 		visibility: hidden;
+		top: 0;
 	}
 
 	&.phase2{
