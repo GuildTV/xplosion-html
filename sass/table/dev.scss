@@ -1,0 +1,16 @@
+body.dev {
+	background: #00ff00;
+}
+
+body.dev #controls {
+	display: block;
+}
+
+#controls {
+	display: none;
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	width: 1700px;
+
+}

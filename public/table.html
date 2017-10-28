@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>xpLosION HTML Graphics</title>
+  <title>xpLosION Results Table</title>
   <style>
-    /*body #outline {
+    body #outline {
       opacity: 0;
-    }*/
-    /*body #controls {
+    }
+    body #controls {
       display: none;
-    }*/
+    }
   </style>
 </head>
 <body>
@@ -31,63 +31,39 @@
           </div>
         </div>
       </div>
-      <div id="rows">
-        <div class="row row1v1">
-          <div class="inner">
-            <div class="team1">Swansea</div>
-            <div class="score">25 - 15</div>
-            <div class="team2">Birmingham</div>
-          </div>
-        </div>
-        <div class="row rowleader">
-          <div class="inner">
-            <div class="team">Bath</div>
-            <div class="wins">0</div>
-            <div class="losses">0</div>
-            <div class="points">0</div>
-          </div>
-        </div>
-        <div class="row rowleader">
-          <div class="inner">
-            <div class="team">Birmingham</div>
-            <div class="wins">0</div>
-            <div class="losses">1</div>
-            <div class="points">0</div>
-          </div>
-        </div>
-        <div class="row rowleader">
-          <div class="inner">
-            <div class="team">Hertfordshire</div>
-            <div class="wins">0</div>
-            <div class="losses">0</div>
-            <div class="points">0</div>
-          </div>
-        </div>
-        <div class="row rowleader">
-          <div class="inner">
-            <div class="team">Portsmouth</div>
-            <div class="wins">0</div>
-            <div class="losses">0</div>
-            <div class="points">0</div>
-          </div>
-        </div>
-        <div class="row rowleader">
-          <div class="inner">
-            <div class="team">Swansea</div>
-            <div class="wins">1</div>
-            <div class="losses">0</div>
-            <div class="points">5</div>
-          </div>
-        </div>
-      </div>
+      <div id="rows"></div>
     </div>
   </div>
 
   <div id="controls">
     <p>
-      <button onclick="window.showTable();">Show</button>
+      <button onclick="window.play();">Show</button>
       <button onclick="window.next();">Next</button>
-      <button onclick="window.hideTable();">Hide</button>
+      <button onclick="window.stop();">Hide</button>
+      <button onclick="window.devUpdate();">Update</button>
+    </p>
+    <p>
+      <textarea id="testData">
+        [{
+          "title": "Testing 123",
+          "subtitle": "Another thing",
+          "mode": "1v1",
+          "rows": [
+            { "team1": "Swansea", "score": "25 - 15", "team2": "Birmingham" }
+          ]
+        }, {
+          "title": "Page 2",
+          "subtitle": "",
+          "mode": "leader",
+          "rows": [
+            { "team": "Bath", "wins": "0", "losses": "0", "points": "0" },
+            { "team": "Birmingham", "wins": "0", "losses": "1", "points": "0" },
+            { "team": "Hertfordshire", "wins": "0", "losses": "0", "points": "0" },
+            { "team": "Portsmouth", "wins": "0", "losses": "0", "points": "0" },
+            { "team": "Swansea", "wins": "1", "losses": "0", "points": "5" }
+          ]
+        }]
+      </textarea>
     </p>
   </div>
 

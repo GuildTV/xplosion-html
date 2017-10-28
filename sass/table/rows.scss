@@ -92,6 +92,10 @@ $ani-row-show-dur: 0.14s;
   }
 }
 
+#line2 .left::before {
+  content: "\200b";
+}
+
 #line2 .leader {
   position: absolute;
   left: 0;
