@@ -45,6 +45,13 @@ namespace xplosion.Controllers
 
     public class MainController : Controller
     {
+        private static readonly LoggingContext Logger;
+
+        static MainController()
+        {
+            Logger = new LoggingContext();
+        }
+
         // GET api/main
         [HttpGet]
         [EnableCors("AllowAllOrigins")]
@@ -69,10 +76,18 @@ namespace xplosion.Controllers
                 System.IO.File.WriteAllText(@"./state.json", stateStr);
             }
 
+            // Log to database
+            Logger.Add(new GraphicsEntry
+            {
+                Change = JsonConvert.SerializeObject(update),
+                Time = DateTime.Now,
+            });
+            Logger.SaveChanges();
+
             return Get();
         }
 
-        private GraphicsStateWithTriggers HandleState(StateUpdate update)
+        private static GraphicsStateWithTriggers HandleState(StateUpdate update)
         {
             lock (GraphicsState.Instance)
             {
