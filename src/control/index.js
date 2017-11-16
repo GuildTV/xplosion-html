@@ -289,9 +289,9 @@ document.querySelector('.commit').onclick = (e) => {
     cache: 'default'
   };
   // TODO - if delta changes are added, then some locking will be wanted on this
-  fetch('/api/main', init).then(r => r.json()).then(j => {
-    window.CurrentState = j;
+  fetch('/api/main', init).then(j => {
     window.NextState = {};
+    sync();
     renderState();
   })
 }

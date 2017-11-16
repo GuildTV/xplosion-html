@@ -1,8 +1,8 @@
 
 window.teams = {
-  leftName: "Team A",
+  leftName: "Lions",
   leftInitials: "BL",
 
-  rightName: "Team B",
-  rightInitials: "KD",
+  rightName: "Destroyers",
+  rightInitials: "PD",
 };

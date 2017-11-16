@@ -1,4 +1,5 @@
 
+Run ```dotnet ef database update``` to setup sqllite for the server
 
 ## Changing Teams
 The team names are defined in config.js. The initials must be kept to 2 characters, the full names are only used in the controller, so accuracy is not essential.

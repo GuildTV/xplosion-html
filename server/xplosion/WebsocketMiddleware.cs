@@ -26,7 +26,10 @@ namespace xplosion
         {
             if (!context.WebSockets.IsWebSocketRequest)
             {
-                await _next.Invoke(context);
+                try
+                {
+                    await _next.Invoke(context);
+                } catch (Exception) { }
                 return;
             }
 
