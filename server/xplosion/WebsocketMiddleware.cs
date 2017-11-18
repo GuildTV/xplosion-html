@@ -26,10 +26,7 @@ namespace xplosion
         {
             if (!context.WebSockets.IsWebSocketRequest)
             {
-                try
-                {
-                    await _next.Invoke(context);
-                } catch (Exception) { }
+                await _next.Invoke(context);
                 return;
             }
 
@@ -80,12 +77,15 @@ namespace xplosion
         {
             foreach (var socket in _sockets)
             {
-                if (socket.Value.State != WebSocketState.Open)
-                {
-                    continue;
-                }
+                try {
+                    if (socket.Value.State != WebSocketState.Open)
+                    {
+                        continue;
+                    }
 
-                await SendStringAsync(socket.Value, data, ct);
+                    await SendStringAsync(socket.Value, data, ct);
+                } catch (Exception){
+                }
             }
         }
 
