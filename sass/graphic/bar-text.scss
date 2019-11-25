@@ -4,11 +4,13 @@
   text-align: center;
   vertical-align: middle;
   line-height: 1.05;
+  // padding-top:5px;
 }
 
 body.in #bar-outline {
   #box-left {
     transition-delay: 0s;
+    padding-top:7px;
     top: 0;
   }
 
@@ -131,6 +133,7 @@ body.in #bar-outline {
       position: absolute;
       top: 0;
       height: 100%;
+      
     }
 
     #score-left, #score-right, #score-left-next, #score-right-next {
@@ -157,6 +160,7 @@ body.in #bar-outline {
 
     #score-left {
       z-index: 106;
+      padding-top:7px;
     }
     #score-left-next {
       z-index: 107;
@@ -192,6 +196,7 @@ body.in #bar-outline {
     #score-right, #score-right-next {
       left: 0;
       width: 62px;
+      padding-top:7px;
     }
 
     #score-right {
@@ -223,6 +228,7 @@ body.in #bar-outline {
     .text {
       // margin-top: 10px;
       text-align: center;
+      padding-top:10px;
     }
   }
 

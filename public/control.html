@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>xpLosION Graphics Controller</title>
+    <title>UpRoar Graphics Controller</title>
   </head>
 <body>
 
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <span class="navbar-brand">xpLosION Controller</span>
+        <span class="navbar-brand">UpRoar Controller</span>
       </div>
       <form class="navbar-form navbar-left" role="search">
         <button class="btn btn-inout">Show</button>
@@ -63,25 +63,25 @@
       </div>
       <div class="col-xs-6 center">
         <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="1">+1</button>
-        <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="2">+2</button>
-        <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="3">+3</button>
-        <button class="btn btn-lg btn-score btn-touchdown" data-key="scoreL" data-delta="6" data-touchdown="1">TD</button>
+        <!-- <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="2">+2</button> -->
+        <!-- <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="3">+3</button> -->
+        <button class="btn btn-lg btn-score btn-touchdown" data-key="scoreL" data-delta="1" data-touchdown="1">Goal</button>
         <br />
         <button class="btn btn-lg btn-score" data-key="scoreL" data-clear="true" data-touchdown="1">Revert</button>
         <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="-1">-1</button>
       </div>
       <div class="col-xs-6 center">
         <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="1">+1</button>
-        <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="2">+2</button>
-        <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="3">+3</button>
-        <button class="btn btn-lg btn-score btn-touchdown" data-key="scoreR" data-delta="6" data-touchdown="2">TD</button>
+        <!-- <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="2">+2</button> -->
+        <!-- <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="3">+3</button> -->
+        <button class="btn btn-lg btn-score btn-touchdown" data-key="scoreR" data-delta="1" data-touchdown="2">Goal</button>
         <br />
         <button class="btn btn-lg btn-score" data-key="scoreR" data-clear="true" data-touchdown="2">Revert</button>
         <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="-1">-1</button>
       </div>
     </div>
 
-    <div class="row" id="timeouts-wrapper">
+    <!-- <div class="row" id="timeouts-wrapper">
       <div class="col-xs-6 center">
         <h4>Timeouts</h4>
       </div>
@@ -100,9 +100,9 @@
         <button class="btn btn-lg btn-timeouts" data-key="timeoutsR" data-value="1">2</button>
         <button class="btn btn-lg btn-timeouts" data-key="timeoutsR" data-value="0">3</button> 
       </div>
-    </div>
+    </div> -->
 
-    <div class="row" id="sets-wrapper" style="display: none">
+    <!-- <div class="row" id="sets-wrapper" style="display: none">
       <div class="col-xs-6 center">
         <h4>Sets <span id="setsLCurrent" class="textCurrent"></span><span id="setsLNext" class="textNext"></span></h4>
       </div>
@@ -117,7 +117,7 @@
         <button class="btn btn-lg btn-sets" data-key="setsR" data-delta="1">+1</button>
         <button class="btn btn-lg btn-sets" data-key="setsR" data-delta="-1">-1</button>
       </div>
-    </div>
+    </div> -->
 
     <div class="row" id="name-wrapper" style="display: none">
       <div class="col-xs-6 center">
@@ -137,7 +137,7 @@
 
     <hr />
 
-    <div class="row">
+    <div class="row" style= "visibility:hidden"> 
       <div class="col-md-12 center">
         <h3>Possession</h3>
       </div>
@@ -148,7 +148,7 @@
       </div>
     </div>
 
-    <div class="row" id="downs-wrapper">
+    <div class="row" id="downs-wrapper" style= "visibility:hidden">
       <div class="col-xs-6 center">
         <h3>Downs</h3>
       </div>
