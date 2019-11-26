@@ -143,28 +143,28 @@ function renderScore(state, next){
 }
 
 function renderSets(state, next){
-  const setsLNext = document.querySelector('#setsLNext');
-  const setsRNext = document.querySelector('#setsRNext');
-  const setsCurrent = document.querySelector('#setsLCurrent');
-  const setsRCurrent = document.querySelector('#setsRCurrent');
+  // const setsLNext = document.querySelector('#setsLNext');
+  // const setsRNext = document.querySelector('#setsRNext');
+  // const setsCurrent = document.querySelector('#setsLCurrent');
+  // const setsRCurrent = document.querySelector('#setsRCurrent');
 
-  setsLNext.innerText = next.setsL === undefined ? "" : "("+next.setsL+")";
-  setsRNext.innerText = next.setsR === undefined ? "" : "("+next.setsR+")";
-  setsLCurrent.innerText = "("+state.setsL+")";
-  setsRCurrent.innerText = "("+state.setsR+")";
+  // setsLNext.innerText = next.setsL === undefined ? "" : "("+next.setsL+")";
+  // setsRNext.innerText = next.setsR === undefined ? "" : "("+next.setsR+")";
+  // setsLCurrent.innerText = "("+state.setsL+")";
+  // setsRCurrent.innerText = "("+state.setsR+")";
 
-  classRemoveAll(document.querySelectorAll('.btn-sets'), ['pending']);
+  // classRemoveAll(document.querySelectorAll('.btn-sets'), ['pending']);
 }
 
 function renderGains(state, next){
-  const gainsCurrent = document.querySelector('#gainsCurrent');
-  const gainsNext = document.querySelector('#gainsNext');
+  // const gainsCurrent = document.querySelector('#gainsCurrent');
+  // const gainsNext = document.querySelector('#gainsNext');
 
-  gainsNext.innerText = next.gains === undefined ? "" : "("+next.gains+")";
-  gainsCurrent.innerText = "("+state.gains+")";
+  // gainsNext.innerText = next.gains === undefined ? "" : "("+next.gains+")";
+  // gainsCurrent.innerText = "("+state.gains+")";
 
-  const sliderVal = next.gains === undefined ? state.gains : next.gains;
-  document.querySelector('#gains-slider').value = sliderVal;
+  // const sliderVal = next.gains === undefined ? state.gains : next.gains;
+  // document.querySelector('#gains-slider').value = sliderVal;
 }
 
 document.querySelector('#gains-slider').oninput = () => {
