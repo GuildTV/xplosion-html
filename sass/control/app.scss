@@ -20,6 +20,7 @@ $colorPending: $brand-warning;
 .textNext {
   color: $brand-warning;
 }
+
 .textCurrent {
   color: $colorLive;
 }
@@ -32,12 +33,20 @@ $colorPending: $brand-warning;
   &.current {
     background-color: $colorLive
   }
+
   &.pending {
     background-color: $colorPending
   }
 }
 
-.btn-quarter, .btn-score, .btn-possession, .btn-downs, .btn-timeouts, .btn-gains, .btn-sets, .btn-editor {
+.btn-quarter,
+.btn-score,
+.btn-possession,
+.btn-downs,
+.btn-timeouts,
+.btn-gains,
+.btn-sets,
+.btn-editor {
   @extend .btn-default;
 
   margin-bottom: 5px;
@@ -51,6 +60,7 @@ $colorPending: $brand-warning;
 
   option {
     background-color: white;
+
     &.current {
       background-color: $colorLive
     }
@@ -66,29 +76,20 @@ $colorPending: $brand-warning;
   // padding-bottom: 14px;
 }
 
-.btn-flag{
-  @extend .btn-default;
-
-  &.on {
-    background-color: $brand-danger;
-  }
-  &.off {
-    background-color: $colorLive;
-  }
-  &.next {
-    background-color: $brand-warning !important;
-  }
-}
-
-.btn-inout {
+.btn-flag,
+.btn-clock,
+.btn-inout,
+.btn-inoutclock {
   @extend .btn-default;
 
   &.off {
     background-color: $brand-danger;
   }
+
   &.on {
     background-color: $colorLive;
   }
+
   &.next {
     background-color: $brand-warning !important;
   }
@@ -100,6 +101,7 @@ $colorPending: $brand-warning;
   height: 100px;
   overflow: hidden;
 }
+
 #bar-preview {
   width: 1920px;
   height: 1080px;

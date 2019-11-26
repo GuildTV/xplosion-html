@@ -1,5 +1,5 @@
-
-#bar-outline, #flag .text {
+#bar-outline,
+#flag .text {
   font-size: 36px;
   text-align: center;
   vertical-align: middle;
@@ -10,7 +10,7 @@
 body.in #bar-outline {
   #box-left {
     transition-delay: 0s;
-    padding-top:7px;
+    padding-top: 7px;
     top: 0;
   }
 
@@ -42,7 +42,7 @@ body.in #bar-outline {
   overflow: hidden;
   color: $text-light;
 
-  &> div {
+  &>div {
     position: absolute;
     top: 58px;
 
@@ -82,7 +82,8 @@ body.in #bar-outline {
     }
   }
 
-  #box-left, #box-left-next {
+  #box-left,
+  #box-left-next {
     left: 0;
     width: 232px;
     background: linear-gradient(#354863, #0f1a29);
@@ -94,6 +95,7 @@ body.in #bar-outline {
     transition-delay: 0.3s;
     text-align: center;
   }
+
   #box-left-next {
     position: absolute;
     height: 100%;
@@ -101,7 +103,7 @@ body.in #bar-outline {
     top: 54px;
     left: 0;
     z-index: 101;
-    
+
     display: inline-flex;
     align-items: center;
 
@@ -123,20 +125,33 @@ body.in #bar-outline {
     font-size: 30px;
 
     transition-delay: 0s;
+
+    &>.content {
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    &>.content.visible {
+      opacity: 1;
+    }
   }
 
-  #team-l-outer, #team-r-outer {
+  #team-l-outer,
+  #team-r-outer {
     height: 54px;
     width: 228px;
 
-    &> div {
+    &>div {
       position: absolute;
       top: 0;
       height: 100%;
-      
+
     }
 
-    #score-left, #score-right, #score-left-next, #score-right-next {
+    #score-left,
+    #score-right,
+    #score-left-next,
+    #score-right-next {
       display: inline-flex;
       align-items: center;
     }
@@ -148,20 +163,22 @@ body.in #bar-outline {
 
     transition-delay: 0.2s;
 
-    &> div {
+    &>div {
       color: $team-l-color-text;
-      background: linear-gradient($team-l-color-bg1, $team-l-color-bg2); 
+      background: linear-gradient($team-l-color-bg1, $team-l-color-bg2);
     }
 
-    #score-left, #score-left-next {
+    #score-left,
+    #score-left-next {
       left: 166px;
       width: 62px;
     }
 
     #score-left {
       z-index: 106;
-      padding-top:7px;
+      padding-top: 7px;
     }
+
     #score-left-next {
       z-index: 107;
       top: 54px;
@@ -188,20 +205,22 @@ body.in #bar-outline {
 
     transition-delay: 0.1s;
 
-    &> div {
+    &>div {
       color: $team-r-color-text;
       background: linear-gradient($team-r-color-bg1, $team-r-color-bg2);
     }
 
-    #score-right, #score-right-next {
+    #score-right,
+    #score-right-next {
       left: 0;
       width: 62px;
-      padding-top:7px;
+      padding-top: 7px;
     }
 
     #score-right {
       z-index: 111;
     }
+
     #score-right-next {
       z-index: 112;
       top: 54px;
@@ -218,7 +237,8 @@ body.in #bar-outline {
     }
   }
 
-  #team-l, #team-r {
+  #team-l,
+  #team-r {
     display: flex;
     justify-content: space-around;
 
@@ -228,7 +248,7 @@ body.in #bar-outline {
     .text {
       // margin-top: 10px;
       text-align: center;
-      padding-top:10px;
+      padding-top: 10px;
     }
   }
 

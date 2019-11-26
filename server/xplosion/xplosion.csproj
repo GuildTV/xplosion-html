@@ -3,6 +3,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>aspnet-xplosion-47009EAB-D300-4A63-9255-6F892FC86031</UserSecretsId>
 	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Runnable>true</Runnable>
+    <OutputType>exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />

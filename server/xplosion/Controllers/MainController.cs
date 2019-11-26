@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
 using Newtonsoft.Json;
 using xplosion.State;
+using System.Timers;
 
 namespace xplosion.Controllers
 {
@@ -33,6 +35,8 @@ namespace xplosion.Controllers
             NameL, NameR,
             
             SetsL, SetsR,
+            
+            ClockRemaining, ClockPlaying, ClockVisible,
         }
 
         public UpdateKey Key { get; set; }
@@ -45,11 +49,30 @@ namespace xplosion.Controllers
 
     public class MainController : Controller
     {
-        private static readonly LoggingContext Logger;
+        //private static readonly LoggingContext Logger;
 
+        [JsonIgnore]
+        private static System.Timers.Timer _tickTimer;
+        
         static MainController()
         {
-            Logger = new LoggingContext();
+            //Logger = new LoggingContext();
+            
+            _tickTimer = new System.Timers.Timer(1000);
+            _tickTimer.Elapsed += (a, b) =>
+            {
+                lock (GraphicsState.Instance)
+                {
+                    if (GraphicsState.Instance.ClockPlaying && GraphicsState.Instance.ClockRemaining > 0)
+                    {
+                        GraphicsState.Instance.ClockRemaining -= 1;
+                        
+                        string stateStr = JsonConvert.SerializeObject(GraphicsState.Instance);
+                        WebsocketMiddleware.SendToAllAsync(stateStr);
+                    }
+                }
+            };
+            _tickTimer.Start();
         }
 
         // GET api/main
@@ -77,12 +100,14 @@ namespace xplosion.Controllers
             }
 
             // Log to database
+            /*
             Logger.Add(new GraphicsEntry
             {
                 Change = JsonConvert.SerializeObject(update),
                 Time = DateTime.Now,
             });
             Logger.SaveChanges();
+            */
 
             return Get();
         }
@@ -152,6 +177,16 @@ namespace xplosion.Controllers
                             break;
                         case StateUpdateEntry.UpdateKey.SetsR:
                             HandleUint(entry, v => state.SetsR = v);
+                            break;
+                        
+                        case StateUpdateEntry.UpdateKey.ClockRemaining:
+                            HandleUint(entry, v => state.ClockRemaining = v);
+                            break;
+                        case StateUpdateEntry.UpdateKey.ClockPlaying:
+                            HandleBool(entry, v => state.ClockPlaying = v);
+                            break;
+                        case StateUpdateEntry.UpdateKey.ClockVisible:
+                            HandleBool(entry, v => state.ClockVisible = v);
                             break;
 
                         default:

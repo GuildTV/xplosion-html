@@ -17,7 +17,7 @@ function renderState(state){
   if (state.in)
     document.body.classList.add("in");
 
-  document.querySelector('#box-right .content').innerText = getDownsAndGains(state);
+  // document.querySelector('#box-right .content').innerText = getDownsAndGains(state);
   updateWithAnimation(() => getQuarterText(state), "box-left");
 
   updateWithAnimation(() => pad(state.scoreL, 2), "score-left");
@@ -51,6 +51,56 @@ function renderState(state){
     case 1:
       document.querySelector('#timeout-r1').classList.add('hidden');
   }
+
+  const padStr = num => {
+    if (num < 10) {
+      return `0${num}`
+    } else {
+      return `${num}`
+    }
+  }
+
+  const mins = Math.floor(state.clockRemaining / 60)
+  const secs = state.clockRemaining % 60
+  const timeStr = `${padStr(mins)}:${padStr(secs)}`
+
+  const content = document.querySelector('#box-right .content')
+  content.innerText = timeStr
+  if (!state.clockVisible && content.classList.contains('visible')) {
+    content.classList.remove('visible')
+  } else if (state.clockVisible && !content.classList.contains('visible')){
+    content.classList.add('visible')
+  }
+
+  // const contentIn = document.querySelector('#box-right.in .content')
+  // const nextContent = document.querySelector('#box-right-next .content')
+  // const nextContentIn = document.querySelector('#box-right-next.in .content')
+
+  // const activeIsClock = content && content.innerText !== ''
+  // const nextIsClock = nextContent && nextContent.innerText !== ''
+
+  // if (activeIsClock) {
+  //   content.innerText = `${padStr(mins)}:${padStr(secs)}`
+  //   if (nextContent) {
+  //     nextContent.innerText = ''
+  //   }
+  // } else if (nextContent && (nextIsClock || activeIsClock)) {
+  //   nextContent.innerText = timeStr
+  // }
+  // if (activeIsClock && !state.clockVisible) {
+  //   updateWithAnimation(() => '', 'box-right')
+  // } else if (!activeIsClock && state.clockVisible) {
+  //   updateWithAnimation(() => timeStr, 'box-right')
+  // }
+  // if (content && content.innerText !== '') {
+  //   content.innerText = `${padStr(mins)}:${padStr(secs)}`
+  // } else if (nextContent && nextContent.innerText !== '') {
+  //   nextContent.innerText = `${padStr(mins)}:${padStr(secs)}`
+  // }
+  // if (content.innerText === '') {
+  //   content = document.querySelector('#box-right-next .content')
+  // }
+  // content.innerText = `${padStr(mins)}:${padStr(secs)}`
 
   // document.body.classList.remove("flag");
   // if (state.flag)

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UpRoar Graphics Controller</title>
-  </head>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UpRoar Graphics Controller</title>
+</head>
+
 <body>
 
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -15,9 +17,10 @@
       </div>
       <form class="navbar-form navbar-left" role="search">
         <button class="btn btn-inout">Show</button>
+        <button class="btn btn-inoutclock">Clock</button>
 
         <span class="spacer quarter-control"></span>
-        
+
         <div class="form-group quarter-control">
           <label>Quarter:</label>
           <select class="form-control" id="quarter-select">
@@ -32,6 +35,7 @@
         <span class="spacer quarter-control"></span>
 
         <button class="btn btn-flag">Flag</button>
+        <button class="btn btn-clock">Run Clock</button>
 
       </form>
       <div id="navbar" class="collapse navbar-collapse">
@@ -39,7 +43,8 @@
           <li><a href="#" class="sync">Fetch</a></li>
           <li><a href="#" class="commit">Commit</a></li>
         </ul>
-      </div><!--/.nav-collapse -->
+      </div>
+      <!--/.nav-collapse -->
     </div>
   </nav>
 
@@ -56,16 +61,19 @@
 
     <div class="row">
       <div class="col-xs-6 center">
-        <h3><span id="teamLName"></span> <span id="scoreLCurrent" class="textCurrent"></span><span id="scoreLNext" class="textNext"></span></h3>
+        <h3><span id="teamLName"></span> <span id="scoreLCurrent" class="textCurrent"></span><span id="scoreLNext"
+            class="textNext"></span></h3>
       </div>
       <div class="col-xs-6 center">
-        <h3><span id="teamRName"></span> <span id="scoreRCurrent" class="textCurrent"></span><span id="scoreRNext" class="textNext"></span></h3>
+        <h3><span id="teamRName"></span> <span id="scoreRCurrent" class="textCurrent"></span><span id="scoreRNext"
+            class="textNext"></span></h3>
       </div>
       <div class="col-xs-6 center">
         <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="1">+1</button>
         <!-- <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="2">+2</button> -->
         <!-- <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="3">+3</button> -->
-        <button class="btn btn-lg btn-score btn-touchdown" data-key="scoreL" data-delta="1" data-touchdown="1">Goal</button>
+        <button class="btn btn-lg btn-score btn-touchdown" data-key="scoreL" data-delta="1"
+          data-touchdown="1">Goal</button>
         <br />
         <button class="btn btn-lg btn-score" data-key="scoreL" data-clear="true" data-touchdown="1">Revert</button>
         <button class="btn btn-lg btn-score" data-key="scoreL" data-delta="-1">-1</button>
@@ -74,7 +82,8 @@
         <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="1">+1</button>
         <!-- <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="2">+2</button> -->
         <!-- <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="3">+3</button> -->
-        <button class="btn btn-lg btn-score btn-touchdown" data-key="scoreR" data-delta="1" data-touchdown="2">Goal</button>
+        <button class="btn btn-lg btn-score btn-touchdown" data-key="scoreR" data-delta="1"
+          data-touchdown="2">Goal</button>
         <br />
         <button class="btn btn-lg btn-score" data-key="scoreR" data-clear="true" data-touchdown="2">Revert</button>
         <button class="btn btn-lg btn-score" data-key="scoreR" data-delta="-1">-1</button>
@@ -137,7 +146,7 @@
 
     <hr />
 
-    <div class="row" style= "visibility:hidden"> 
+    <div class="row" style="visibility:hidden">
       <div class="col-md-12 center">
         <h3>Possession</h3>
       </div>
@@ -148,7 +157,7 @@
       </div>
     </div>
 
-    <div class="row" id="downs-wrapper" style= "visibility:hidden">
+    <div class="row" id="downs-wrapper" style="visibility:hidden">
       <div class="col-xs-6 center">
         <h3>Downs</h3>
       </div>
@@ -171,6 +180,18 @@
       </div>
     </div>
 
+    <div class="row" id="clock-wrapper">
+      <div class="col-xs-12 center">
+        <h3>Clock</h3>
+      </div>
+      <div class="col-xs-12 center">
+        <input type="number" id="clock-mins" class="clock-input" />
+        <span>:</span>
+        <input type="number" id="clock-secs" class="clock-input" />
+      </div>
+    </div>
+
+
   </div><!-- /.container -->
 
   <script src="/dist/bundle.js"></script>
@@ -178,4 +199,5 @@
     window.setupControl();
   </script>
 </body>
+
 </html>

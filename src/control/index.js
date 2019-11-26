@@ -63,7 +63,10 @@ function renderState(){
   renderButtonGroup(state, next, "downs");
   renderGains(state, next);
   renderInOut(state, next);
+  renderInOutClock(state, next);
+  renderPlayingClock(state, next);
   renderName(state, next);
+  renderClockTime(state, next);
 }
 
 function renderQuarter(state, next){
@@ -94,6 +97,7 @@ function renderFlag(state, next){
     elm.classList.add('next');
 }
 
+
 function renderInOut(state, next){
   const elm = document.querySelector('.btn-inout')
   elm.classList.remove('next', 'on', 'off');
@@ -106,12 +110,42 @@ function renderInOut(state, next){
     elm.classList.add('off');
 }
 
+function renderInOutClock(state, next){
+  const elm = document.querySelector('.btn-inoutclock')
+  elm.classList.remove('next', 'on', 'off');
+
+  if (next.clockVisible !== undefined)
+    elm.classList.add('next');
+  else if (state.clockVisible)
+    elm.classList.add('on');
+  else
+    elm.classList.add('off');
+}
+
+function renderPlayingClock(state, next){
+  const elm = document.querySelector('.btn-clock')
+  elm.classList.remove('next', 'on', 'off');
+
+  if (next.clockPlaying !== undefined)
+    elm.classList.add('next');
+  else if (state.clockPlaying)
+    elm.classList.add('on');
+  else
+    elm.classList.add('off');
+}
+
 function renderName(state, next){
   document.querySelector('#nameLCurrent').innerText = state.nameL;
   document.querySelector('#nameRCurrent').innerText = state.nameR;
 
   document.querySelector('#nameLNext').innerText = next.nameL === undefined ? "" : next.nameL;
   document.querySelector('#nameRNext').innerText = next.nameR === undefined ? "" : next.nameR;
+}
+function renderClockTime(state, next){
+  var clockRemaining = next.clockRemaining !== undefined ? next.clockRemaining : state.clockRemaining;
+  // console.log(clockRemaining, Math.floor(clockRemaining / 60), clockRemaining % 60, )
+  document.querySelector('#clock-mins').value = Math.floor(clockRemaining / 60);
+  document.querySelector('#clock-secs').value = clockRemaining % 60;
 }
 
 function renderButtonGroup(state, next, key){
@@ -184,6 +218,30 @@ document.querySelectorAll('.btn-flag').forEach(e => {
   };
 });
 
+document.querySelectorAll('.btn-clock').forEach(e => {
+  e.onclick = () => {
+    window.NextState.clockPlaying = (window.NextState.clockPlaying === undefined) ? !window.CurrentState.clockPlaying : undefined;
+
+    renderState();
+    return false;
+  };
+});
+
+document.querySelectorAll('.clock-input').forEach(e => {
+  e.onchange = () => {
+    var mins = document.querySelector('#clock-mins').value
+    var secs = document.querySelector('#clock-secs').value
+
+    window.NextState.clockRemaining = (parseInt(mins) * 60) + parseInt(secs)
+    // console.log(mins, secs, window.NextState.clockRemaining)
+
+    // window.NextState.clock = (window.NextState.clockPlaying === undefined) ? !window.CurrentState.clockPlaying : undefined;
+
+    renderState();
+    return false;
+  };
+});
+
 document.querySelectorAll('.btn-editor').forEach(e => {
   const key = e.getAttribute('data-key');
 
@@ -199,6 +257,14 @@ document.querySelectorAll('.btn-editor').forEach(e => {
 document.querySelectorAll('.btn-inout').forEach(e => {
   e.onclick = () => {
     window.NextState.in = (window.NextState.in === undefined) ? !window.CurrentState.in : undefined;
+
+    renderState();
+    return false;
+  };
+});
+document.querySelectorAll('.btn-inoutclock').forEach(e => {
+  e.onclick = () => {
+    window.NextState.clockVisible = (window.NextState.clockVisible === undefined) ? !window.CurrentState.clockVisible : undefined;
 
     renderState();
     return false;
@@ -278,6 +344,7 @@ document.querySelector('.commit').onclick = (e) => {
   });
 
   console.log("Sending changes:", changes)
+
 
   const init = { 
     method: 'POST',

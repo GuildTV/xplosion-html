@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Timers;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
 
 namespace xplosion.State
@@ -62,6 +64,14 @@ namespace xplosion.State
         public uint SetsL { get; set; }
         [JsonProperty("setsR")]
         public uint SetsR { get; set; }
+        
+        [JsonProperty("clockRemaining")]
+        public uint ClockRemaining { get; set; }
+        [JsonProperty("clockPlaying")]
+        public bool ClockPlaying { get; set; }
+        [JsonProperty("clockVisible")]
+        public bool ClockVisible { get; set; }
+        
     }
 
     public class GraphicsStateWithTriggers : GraphicsState
@@ -82,6 +92,10 @@ namespace xplosion.State
             NameR = state.NameR;
             SetsL = state.SetsL;
             SetsR = state.SetsR;
+
+            ClockRemaining = state.ClockRemaining;
+            ClockPlaying = state.ClockPlaying;
+            ClockVisible = state.ClockVisible;
 
             Triggers = triggers;
         }
