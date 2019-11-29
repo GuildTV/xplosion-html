@@ -4,13 +4,12 @@
   text-align: center;
   vertical-align: middle;
   line-height: 1.05;
-  // padding-top:5px;
+  // padding-top: 5px;
 }
 
 body.in #bar-outline {
   #box-left {
     transition-delay: 0s;
-    padding-top: 7px;
     top: 0;
   }
 
@@ -176,7 +175,6 @@ body.in #bar-outline {
 
     #score-left {
       z-index: 106;
-      padding-top: 7px;
     }
 
     #score-left-next {
@@ -214,7 +212,6 @@ body.in #bar-outline {
     #score-right-next {
       left: 0;
       width: 62px;
-      padding-top: 7px;
     }
 
     #score-right {
@@ -248,7 +245,6 @@ body.in #bar-outline {
     .text {
       // margin-top: 10px;
       text-align: center;
-      padding-top: 10px;
     }
   }
 
