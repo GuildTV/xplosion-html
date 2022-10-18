@@ -4,7 +4,8 @@ require("./touchdown");
 document.querySelector('#team-l .text').innerText = window.teams.leftInitials;
 document.querySelector('#team-r .text').innerText = window.teams.rightInitials;
 
-window.socket = new WebSocket("ws://" + window.location.host + "/ws");
+var protocol = window.location.protocol.startsWith('https') ? 'wss://' : 'ws://'
+window.socket = new WebSocket(protocol + window.location.host + "/ws");
 window.socket.onmessage = function (event) {
   const data = JSON.parse(event.data);
   console.log("Got data:", data);

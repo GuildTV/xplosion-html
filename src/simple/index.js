@@ -1,6 +1,7 @@
 require("../../sass/simple/app.scss");
 
-window.socket = new WebSocket("ws://" + window.location.host + "/ws");
+var protocol = window.location.protocol.startsWith('https') ? 'wss://' : 'ws://'
+window.socket = new WebSocket(protocol + window.location.host + "/ws");
 window.socket.onmessage = function (event) {
   const data = JSON.parse(event.data);
   console.log("Got data:", data);

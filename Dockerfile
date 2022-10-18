@@ -20,7 +20,7 @@ WORKDIR /app
 COPY --from=build-server /src/xplosion/dist /app
 COPY --from=build-server /src/xplosion/appsettings.json /app/
 
-RUN rm /app/state.json
+RUN rm /app/state.json || true
 RUN rm -R /app/wwwroot
 
 COPY --from=build-node /src/public /app/wwwroot
