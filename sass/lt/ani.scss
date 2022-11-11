@@ -31,7 +31,7 @@ body.in {
 		animation-fill-mode: forwards;
 		animation-timing-function: ease-out;
 
-		top: 103px;
+		top: 113px;
 	}
 
 	#line1 .bg {
@@ -41,7 +41,7 @@ body.in {
 		animation-fill-mode: forwards;
 		animation-timing-function: ease-out;
 
-    	top: 103px;
+    	top: 113px;
 	}
 
 	#line1 {
@@ -66,7 +66,7 @@ body.in {
 	}
 
 	#line1 .mask {
-		top: 103px;
+		top: 113px;
 	}
 	#line1 .text2 {
 		visibility: hidden;
@@ -104,7 +104,7 @@ body.in {
 }
 
 @keyframes lineOneTop {
-    0%   { top: 103px; }
+    0%   { top: 113px; }
     100% { top: 0; }
 }
 @keyframes lineOneTopOuter {
@@ -122,8 +122,8 @@ body.in {
 }
 
 @keyframes lineOneMask {
-    0%   { top: 103px; }
+    0%   { top: 113px; }
     45%  { top: 0; }
     55%  { top: 0; }
-    100% { top: -103px; }
+    100% { top: -113px; }
 }
