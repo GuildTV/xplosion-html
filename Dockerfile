@@ -26,8 +26,14 @@ RUN rm -R /app/wwwroot
 COPY --from=build-node /src/public /app/wwwroot
 COPY --from=build-node /src/dist /app/wwwroot/dist
 
-RUN apt-get update && apt-get install -y \
-    libssl1.0.0 libicu52 libunwind8 \
+RUN echo "Acquire::Check-Valid-Until false;" > /etc/apt/apt.conf
+
+RUN sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list
+RUN sed -i s/security.debian.org/archive.debian.org/g /etc/apt/sources.list
+RUN sed -i s/jessie-updates/jessie/g /etc/apt/sources.list
+
+RUN apt-get --allow-unauthenticated update && apt-get --allow-unauthenticated install -y \
+    libssl-dev libicu-dev libunwind-dev \
     && rm -rf /var/lib/apt/lists/*
 
 CMD "/app/xplosion"
