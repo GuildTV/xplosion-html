@@ -73,7 +73,10 @@ window.next = function() {
 
 window.update = function(str){
 	console.log("Update:", str)
+	//if (str.endsWith("=")) str = atob(str)
 	const dat = (typeof(str) == "string") ? JSON.parse(str) : str;
+
+	if (dat.data.endsWith("=")) dat.data = atob(dat.data)
 
 	window.tableData = JSON.parse(dat.data);
 }
