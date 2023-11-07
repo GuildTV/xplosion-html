@@ -47,3 +47,44 @@ body {
   }
 
 }
+
+#team-l .logo {
+  // background-color: green;
+  width: 54px;
+  height: 39px;
+
+  position: absolute;
+  float: left;
+  display: block;
+  top: 5px;
+  left: 10px;
+  z-index: 0;
+
+  background-image: url("/img/RedLion.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+#team-r .logo {
+  // background-color: green;
+  width: 54px;
+  height: 39px;
+
+  position: absolute;
+  float: left;
+  display: block;
+  top: 3px;
+  right: 10px;
+  z-index: 0;
+
+  background-image: url("/img/cobrasnew6.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  // filter: brightness(100);
+  // filter: contrast(200);
+  // filter: sepia();
+}
