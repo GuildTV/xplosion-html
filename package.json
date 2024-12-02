@@ -14,8 +14,8 @@
   },
   "author": "",
   "dependencies": {
-    "bootstrap-sass": "^3.4.3",
-    "bootswatch": "^3.4.1"
+    "bootstrap": "^5.3.3",
+    "bootswatch": "^5.3.3"
   },
   "packageManager": "yarn@4.5.3",
   "devDependencies": {

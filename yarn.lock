@@ -419,17 +419,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bootstrap-sass@npm:^3.4.3":
-  version: 3.4.3
-  resolution: "bootstrap-sass@npm:3.4.3"
-  checksum: 10c0/748c8fdde4cf625c54600500ff00ff560f5a485856aab89f0c46d140e910ba4b2a81e33373b3a05aac70f0b4011d17b960e7900a854f447aab3e34cb10417f01
+"bootstrap@npm:^5.3.3":
+  version: 5.3.3
+  resolution: "bootstrap@npm:5.3.3"
+  peerDependencies:
+    "@popperjs/core": ^2.11.8
+  checksum: 10c0/bb68ca7b763977b9cce40cb5b8c676ae19a716d2f5d15009fa7bdbcec9dea426968e3cb748fbed7592fbf10edd7c749aea841c2920996a7c1aa5e0a6e2d4c2ad
   languageName: node
   linkType: hard
 
-"bootswatch@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "bootswatch@npm:3.4.1"
-  checksum: 10c0/473181dfdc59ca9731e1c2e8750dd325c3c6c401b6380f30d1da1560c651f631a66616f3306a7b9ff7de656c2b59213e28f569726c84337430548e9b6e2fe01a
+"bootswatch@npm:^5.3.3":
+  version: 5.3.3
+  resolution: "bootswatch@npm:5.3.3"
+  checksum: 10c0/f32187686f1a2ca200267335d32ad95692b16af7de862c537bc0ffb8371947114bf556867eeef3de3d5ef0197ab6efabad34096b0a260d8b44700811cd72adf6
   languageName: node
   linkType: hard
 
@@ -1720,8 +1722,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "xplosion@workspace:."
   dependencies:
-    bootstrap-sass: "npm:^3.4.3"
-    bootswatch: "npm:^3.4.1"
+    bootstrap: "npm:^5.3.3"
+    bootswatch: "npm:^5.3.3"
     prettier: "npm:^3.4.1"
     sass-embedded: "npm:^1.81.0"
     vite: "npm:^6.0.2"

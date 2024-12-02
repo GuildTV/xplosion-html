@@ -1,10 +1,23 @@
 // @import "bootstrap-sprockets";
-@import 'bootstrap-sass/assets/stylesheets/bootstrap-sprockets';
-@import 'bootswatch/darkly/variables';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap';
-@import 'bootswatch/darkly/bootswatch';
+// @import 'bootstrap-sass/assets/stylesheets/bootstrap-sprockets';
+// @import 'bootswatch/darkly/variables';
+// @import 'bootstrap-sass/assets/stylesheets/bootstrap';
+// @import 'bootswatch/darkly/bootswatch';
+
+@import 'bootswatch/dist/darkly/variables';
+@import 'bootstrap/scss/bootstrap';
+@import 'bootswatch/dist/darkly/bootswatch';
 
 @import 'slider';
+
+.btn {
+	--bs-btn-padding-x: 1rem;
+	--bs-btn-padding-y: 0.5rem;
+}
+.btn-lg {
+	--bs-btn-padding-x: 2rem;
+	--bs-btn-padding-y: 1rem;
+}
 
 body {
 	padding-top: 50px;
@@ -14,11 +27,11 @@ hr {
 	margin-bottom: 0;
 }
 
-$colorLive: $brand-success;
-$colorPending: $brand-warning;
+$colorLive: var(--bs-success);
+$colorPending: var(--bs-warning);
 
 .textNext {
-	color: $brand-warning;
+	color: var(--bs-warning);
 }
 .textCurrent {
 	color: $colorLive;
@@ -45,7 +58,7 @@ $colorPending: $brand-warning;
 .btn-gains,
 .btn-sets,
 .btn-editor {
-	@extend .btn-default;
+	@include button-variant(#2c2c2c, #272727);
 
 	margin-bottom: 5px;
 }
@@ -67,36 +80,41 @@ $colorPending: $brand-warning;
 	text-align: center;
 }
 
-.btn-lg {
-	// padding-top: 14px;
-	// padding-bottom: 14px;
+.quarter-control {
+	display: grid;
+	grid-template-columns: auto auto;
+	column-gap: 0.5rem;
+
+	label {
+		align-content: center;
+	}
 }
 
 .btn-flag {
-	@extend .btn-default;
+	@include button-variant(#2c2c2c, #272727);
 
 	&.on {
-		background-color: $brand-danger;
+		background-color: var(--bs-danger);
 	}
 	&.off {
 		background-color: $colorLive;
 	}
 	&.next {
-		background-color: $brand-warning !important;
+		background-color: var(--bs-warning) !important;
 	}
 }
 
 .btn-inout {
-	@extend .btn-default;
+	@include button-variant(#2c2c2c, #272727);
 
 	&.off {
-		background-color: $brand-danger;
+		background-color: var(--bs-danger);
 	}
 	&.on {
 		background-color: $colorLive;
 	}
 	&.next {
-		background-color: $brand-warning !important;
+		background-color: var(--bs-warning) !important;
 	}
 }
 
