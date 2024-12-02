@@ -37,8 +37,19 @@ $colorPending: var(--bs-warning);
 	color: $colorLive;
 }
 
-.spacer {
-	margin: 0 20px;
+.my-navbar-content {
+	// display: grid;
+	// grid-template-columns: auto;
+	// grid-auto-flow: column;
+	column-gap: 0.5rem;
+	display: flex;
+	width: 100%;
+
+	.my-navbar-spacer {
+		width: 100%;
+		display: inline-block;
+		flex-grow: 1;
+	}
 }
 
 .btn {
@@ -64,6 +75,8 @@ $colorPending: var(--bs-warning);
 }
 
 #quarter-select {
+	min-width: fit-content;
+
 	&.pending {
 		background-color: $colorPending;
 	}
@@ -87,6 +100,7 @@ $colorPending: var(--bs-warning);
 
 	label {
 		align-content: center;
+		padding-left: 0.5rem;
 	}
 }
 
@@ -119,7 +133,6 @@ $colorPending: var(--bs-warning);
 }
 
 .bar-scaler {
-	// TODO - render 1080 and scale
 	width: 100%;
 	height: 100px;
 	overflow: hidden;
@@ -128,7 +141,21 @@ $colorPending: var(--bs-warning);
 	width: 1920px;
 	height: 1080px;
 
+	--bar-scale: 1;
+
 	margin-left: calc(-960px + 50%);
-	transform: scale(0.8);
+	transform: scale(calc(0.8 * var(--bar-scale))) translateY(calc((1 - var(--bar-scale)) * 250px));
 	transform-origin: top center;
+}
+
+@media screen and (max-width: 800px) {
+	#bar-preview {
+		--bar-scale: 0.7;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	#bar-preview {
+		--bar-scale: 0.5;
+	}
 }
