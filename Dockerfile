@@ -1,4 +1,4 @@
-FROM node:8 AS build-node
+FROM node:22 AS build-node
 
 ADD . /src
 WORKDIR /src

@@ -1,0 +1,20 @@
+@import '../../sass/variables';
+@import '../../sass/casparcg';
+@import 'ani';
+@import 'dev';
+@import '../../sass/headings';
+
+body {
+	background-repeat: no-repeat;
+	font-family: 'HelveticaBold';
+}
+
+#outline {
+	position: absolute;
+	top: 825px;
+	left: 192px;
+	width: 1536px;
+	height: 150px;
+
+	overflow: hidden;
+}

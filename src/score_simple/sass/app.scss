@@ -1,0 +1,71 @@
+@import '../../sass/variables';
+@import '../../sass/casparcg';
+
+@import 'bar-text';
+
+body {
+	font-family: 'Helvetica';
+}
+
+@font-face {
+	font-family: 'Helvetica';
+	src: url('/font/Helvetica-Bold.otf');
+}
+
+body {
+	transition: opacity 0.5s;
+
+	// background: #00ff00;
+}
+
+body.in {
+	opacity: 1;
+}
+
+#content-mask {
+	background-image: url('/img/simple-bg.png');
+	background-position: -456px -870px;
+
+	// width: 0;
+	width: 100vw;
+	height: 100vh;
+	margin: auto;
+
+	#content {
+		position: fixed;
+		top: 0;
+		left: 0;
+
+		width: 100vw;
+		height: 100vh;
+	}
+}
+
+#possession-left,
+#possession-right {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+
+	background-image: url('/img/squash-ball.png');
+	transform: scale(0.8);
+	transform-origin: top left;
+
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+#possession-left {
+	// background-position: -576px -870px;
+	background-position: -349px -850px;
+}
+#possession-right {
+	// background-position: -456px -870px;
+	background-position: -199px -850px;
+}
+
+body.possession-left #possession-left,
+body.possession-right #possession-right {
+	opacity: 1;
+}

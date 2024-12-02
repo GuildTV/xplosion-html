@@ -1,0 +1,59 @@
+#touchdown {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+
+	.bg {
+		position: absolute;
+		top: 0;
+		height: 100%;
+		left: 0;
+		width: 100%;
+	}
+
+	.text {
+		position: absolute;
+		top: 0;
+		height: 100%;
+		left: 0;
+		width: 100%;
+
+		letter-spacing: 0.1em;
+		font-size: 48px;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 1.15;
+	}
+}
+
+// Animate contents
+body.touchdown-ani #touchdown .text {
+	transition: letter-spacing 10s linear;
+	letter-spacing: 0.8em !important;
+}
+
+// Animate in/out
+body.touchdown-in #touchdown {
+	top: 0;
+}
+
+body.touchdown-l #touchdown {
+	.text {
+		color: $team-l-color-text;
+	}
+	.bg {
+		background: linear-gradient($team-l-color-bg1, $team-l-color-bg2);
+	}
+}
+
+body.touchdown-r #touchdown {
+	.text {
+		color: $team-r-color-text;
+	}
+	.bg {
+		background: linear-gradient($team-r-color-bg1, $team-r-color-bg2);
+	}
+}
