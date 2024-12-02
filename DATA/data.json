@@ -1,0 +1,16 @@
+{
+	"triggers": {},
+	"in": false,
+	"quarter": 4,
+	"scoreL": 27,
+	"scoreR": 17,
+	"timeoutsL": 0,
+	"timeoutsR": 2,
+	"possession": 1,
+	"downs": 3,
+	"gains": "",
+	"nameL": "Team L",
+	"nameR": "Team R",
+	"setsL": 0,
+	"setsR": 0
+}
