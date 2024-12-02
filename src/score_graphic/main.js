@@ -1,17 +1,37 @@
 import './sass/app.scss'
 import { showTouchdown } from './touchdown.js'
 import { config } from '../config.js'
+import io from 'socket.io-client'
 
 document.querySelector('#team-l .text').innerText = config.teams.leftInitials
 document.querySelector('#team-r .text').innerText = config.teams.rightInitials
 
-window.socket = new WebSocket('/ws')
-window.socket.onmessage = function (event) {
-	const data = JSON.parse(event.data)
+const socket = io()
+socket.on('connect', () => {
+	console.log('Connected to server')
+})
+socket.on('disconnect', () => {
+	console.log('Disconnected from server')
+})
+socket.on('state', (data) => {
 	console.log('Got data:', data)
 
 	renderState(data)
-}
+})
+socket.on('trigger', (data) => {
+	switch (data.touchdown) {
+		case 1:
+		case '1':
+			showTouchdown('l')
+			break
+		case 2:
+		case '2':
+			showTouchdown('r')
+			break
+	}
+
+	if (data.flag) doFlag()
+})
 
 function renderState(state) {
 	document.body.classList.remove('in')
@@ -26,9 +46,11 @@ function renderState(state) {
 	document.body.classList.remove('possession-left', 'possession-right')
 	switch (state.possession) {
 		case 1:
+		case '1':
 			document.body.classList.add('possession-left')
 			break
 		case 2:
+		case '2':
 			document.body.classList.add('possession-right')
 			break
 	}
@@ -55,21 +77,6 @@ function renderState(state) {
 	// document.body.classList.remove("flag");
 	// if (state.flag)
 	// document.body.classList.add("flag");
-
-	if (state.triggers) {
-		switch (state.triggers.touchdown) {
-			case 1:
-			case '1':
-				showTouchdown('l')
-				break
-			case 2:
-			case '2':
-				showTouchdown('r')
-				break
-		}
-
-		if (state.triggers.flag) doFlag(state)
-	}
 }
 
 function updateWithAnimation(nextValSelector, name) {
@@ -93,7 +100,7 @@ function updateWithAnimation(nextValSelector, name) {
 }
 
 let flagTimer = null
-function doFlag(state) {
+function doFlag() {
 	if (flagTimer !== null) return
 
 	document.body.classList.add('flag')

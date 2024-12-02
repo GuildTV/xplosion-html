@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
-const upstreamUrl = process.env.UPSTREAM_URL || '127.0.0.1:5000'
+const upstreamUrl = process.env.UPSTREAM_URL || '127.0.0.1:3000'
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
@@ -28,7 +28,7 @@ export default defineConfig({
 			'/api': {
 				target: `http://${upstreamUrl}`,
 			},
-			'/ws': {
+			'/socket.io': {
 				target: `ws://${upstreamUrl}`,
 				ws: true,
 			},

@@ -7,20 +7,24 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "_dev": "webpack-dev-server --progress --colors --public --disable-host-check --host 0.0.0.0",
-    "dev": "vite",
+    "dev:client": "vite",
+    "dev:srv": "node --watch src/server/main.js",
     "_dist": "NODE_ENV=production webpack -p --progress --colors",
     "dist": "vite build",
     "format": "prettier --write ."
   },
   "author": "",
-  "dependencies": {
-    "bootstrap": "^5.3.3",
-    "bootswatch": "^5.3.3"
-  },
   "packageManager": "yarn@4.5.3",
   "devDependencies": {
+    "bootstrap": "^5.3.3",
+    "bootswatch": "^5.3.3",
     "prettier": "^3.4.1",
     "sass-embedded": "^1.81.0",
+    "socket.io-client": "^4.8.1",
     "vite": "^6.0.2"
+  },
+  "dependencies": {
+    "express": "^5.0.1",
+    "socket.io": "^4.8.1"
   }
 }
