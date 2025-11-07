@@ -3,7 +3,7 @@ export const config = {
 		leftName: 'Lions',
 		leftInitials: 'BL',
 
-		rightName: 'Destroyers',
-		rightInitials: 'PD',
+		rightName: 'Oxford',
+		rightInitials: 'OB',
 	},
 }
