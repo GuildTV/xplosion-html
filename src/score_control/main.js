@@ -34,6 +34,34 @@ function sync(e) {
 sync()
 document.querySelector('.sync').onclick = sync
 
+function doFullscreen(e) {
+	if (e !== undefined) e.preventDefault()
+
+	const elem = document.documentElement
+	if (!document.fullscreenElement) {
+		if (elem.requestFullscreen) {
+			elem.requestFullscreen()
+		} else if (elem.mozRequestFullScreen) {
+			/* Firefox */
+			elem.mozRequestFullScreen()
+		} else if (elem.webkitRequestFullscreen) {
+			/* Chrome, Safari & Opera */
+			elem.webkitRequestFullscreen()
+		}
+	} else {
+		if (document.exitFullscreen) {
+			document.exitFullscreen()
+		} else if (document.mozCancelFullScreen) {
+			/* Firefox */
+			document.mozCancelFullScreen()
+		} else if (document.webkitExitFullscreen) {
+			/* Chrome, Safari and Opera */
+			document.webkitExitFullscreen()
+		}
+	}
+}
+document.querySelector('.fullscreen').onclick = doFullscreen
+
 function classRemoveAll(elms, cl) {
 	if (elms === null || elms === undefined) return
 
