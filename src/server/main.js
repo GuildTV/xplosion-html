@@ -4,7 +4,7 @@ import { Server } from 'socket.io'
 import { loadState, saveState } from './state.js'
 import { handleBool, handleEnum, handleUint } from './util.js'
 
-const STATE_FILENAME = 'state.json'
+const STATE_FILENAME = path.join(import.meta.dirname, 'storage/state.json')
 
 let state = loadState(STATE_FILENAME)
 
