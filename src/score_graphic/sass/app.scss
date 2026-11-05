@@ -8,12 +8,16 @@
 @import 'bar-text';
 
 body {
-	font-family: 'TradeGothic';
+	// font-family: 'TradeGothic';
+	font-family: 'Manrope';
+	font-weight: 600;
 }
 
 @font-face {
-	font-family: 'TradeGothic';
-	src: url('/font/TradeGothicLTStd-Bd2.otf');
+	// font-family: 'TradeGothic';
+	// src: url('/font/TradeGothicLTStd-Bd2.otf');
+	font-family: 'Manrope';
+	src: url('/font/Manrope-VariableFont_wght.ttf');
 }
 
 body {
